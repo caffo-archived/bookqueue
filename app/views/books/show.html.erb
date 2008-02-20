@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @book.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @book.url %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @book.image %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @book.author %>
+</p>
+
+<p>
+  <b>Started on:</b>
+  <%=h @book.started_on %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @book.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

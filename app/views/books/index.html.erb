@@ -1,0 +1,50 @@
+
+<div id="container">
+	<% if @current && @current.size > 0%>
+		<hr>
+		<h1>Current Book</h1>
+		<table border="0" id="current">  
+			<% for book in @current %>
+				<%= render :partial => 'current_book', :locals => { :book => book } %>
+			<% end %>
+			</table>
+		<br />
+	<% end %>
+
+	<% if @next && @next.size > 0 %>
+	<hr>
+	<% @current_item = 0 %>
+		<h1>Next Books</h1>
+		<table border="0">  
+			<tr>
+			<% for book in @next %>
+				<%= render :partial => 'single_book', :locals => { :book => book }  %>
+				<% end %>
+		</table>
+		<br/>
+	<% end %>
+
+	<% if @finished && @finished.size > 0%>
+	<hr>	
+	<% @current_item = 0 %>	
+	<h1>Finished Book</h1>
+	<table border="0" cellspacing="0" cellpading="0">
+		<tr>
+		<% for book in @finished %>
+			<%= render :partial => 'finished_book', :locals => { :book => book }  %>
+		<% end %>
+	</table>
+	<% end %>
+	
+	<hr>
+	<table border="0" style="width: 600px; margin: 0 0 auto;">
+		<tr>
+			<th>Finished Books</th>
+			<th>Next Books</th>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 300px;"><h1><%= @finished.size %></h1></td>
+			<td style="text-align: center; width: 300px;"><h1><%= @next.size %></h1></td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,49 @@
+<h1>Editing book</h1>
+
+<%= error_messages_for :book %>
+
+<% form_for(:book, :url => book_path(@book), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Url</b><br />
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <b>Image</b><br />
+    <%= f.text_field :image %>
+  </p>
+
+  <p>
+    <b>Author</b><br />
+    <%= f.text_field :author %>
+  </p>
+
+  <p>
+    <b>Blurb</b><br />
+    <%= f.text_area :blurb %>
+  </p>
+
+	<p>
+    <b>Started on</b><br />
+    <%= f.date_select :started_on %>
+  </p>
+	
+
+  <p>
+    <b>Status</b><br />
+    <%= f.select :status, Book::STATUSES %>
+  </p>
+
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', book_path(@book) %> |
+<%= link_to 'Back', books_path %>
