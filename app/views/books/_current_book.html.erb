@@ -1,0 +1,9 @@
+<tr>
+  <td><%= image_tag book.image, {:style => 'height: 164px; width: 123px;'} %></td>
+  <td style="vertical-alignment: top;" valign="top">
+			<h3><%= link_to book.title, book.url %></h3>
+			<p class="current_author">by <%= h book.author %></p>
+			<p class="current_blurb"><%= book.blurb %></p>
+			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
+	</td>
+</tr>

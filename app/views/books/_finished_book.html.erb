@@ -1,0 +1,13 @@
+  <td class="finished_book_cover"><%= image_tag book.image, {:style => 'height: 66px; width: 49px;'} %></td>
+  <td class="finished_book_description">
+			<%= link_to book.title, book.url %><br/>
+			by <%= h book.author %><br/>
+			<% if book.days_taken %> finished in <b><%= h book.days_taken %></b> days<% end %>
+			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
+	</td>
+<% if @current_item >= 2 %>
+  </tr><tr>
+	<% @current_item = 0 %>
+<% else %>
+	<% @current_item += 1 %>
+<% end %>
