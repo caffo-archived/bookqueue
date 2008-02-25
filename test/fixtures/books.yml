@@ -1,17 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+oldman:
   id: 1
-  title: MyString
-  url: MyText
-  image: MyText
-  author: MyString
+  title: Old Man Wars
+  url: http://en.wikipedia.org/wiki/Old_Man's_War
+  image: http://upload.wikimedia.org/wikipedia/en/e/e4/OldMansWar%281stEd%29.jpg
+  author: John Scalzi
   started_on: 2007-11-17
   created_at: 2007-11-17 17:26:40
-two:
+cryptonomicon:
   id: 2
-  title: MyString
-  url: MyText
-  image: MyText
-  author: MyString
+  title: Cryptonomicon
+  url: http://en.wikipedia.org/wiki/Cryptonomicon
+  image: http://upload.wikimedia.org/wikipedia/en/9/93/Cryptonomicon%281stEd%29.jpg
+  author: Neal Stephenson
   started_on: 2007-11-17
   created_at: 2007-11-17 17:26:40

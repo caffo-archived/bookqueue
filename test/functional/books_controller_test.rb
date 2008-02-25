@@ -13,6 +13,13 @@ class BooksControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
+  def test_should_require_login
+    assert_requires_login(:quentin) { |c| 
+      c.get :edit, :id => 1 
+      c.get :new
+    }
+  end
+
   def test_should_get_index
     get :index
     assert_response :success
