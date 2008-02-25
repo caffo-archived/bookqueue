@@ -1,6 +1,23 @@
 class Book < ActiveRecord::Base
-  STATUSES = [  ['finished',2], ['next',0], ['currently',1] ]
+  STATUSES = ['next', 'current','finished']
+
+  attr_accessor :new_status
+  
+  after_create  :create_media
   before_update :update_status
+  
+  acts_as_state_machine :initial => :next
+  state :next
+  state :current,  :enter  => Proc.new {|b| b.update_media("current")}
+  state :finished, :enter  => Proc.new {|b| b.finished_on = Date.today; b.update_media("finished")}
+  
+  event :finish do    
+    transitions :from  => :current, :to    => :finished
+  end
+
+  event :start_reading do
+    transitions :from  => :next, :to    => :current
+  end
   
   def days_taken
     if self.finished_on && self.started_on
@@ -8,61 +25,35 @@ class Book < ActiveRecord::Base
     end
   end
   
+  
+  def update_media(state)
+    post       = FeedItem.new
+    post.title = "#{title}"
+    case state
+      when "next"
+        post.body  = "'#{title}', by #{author} added to caffo's book queue."
+        status = TWITTER.status(:post, "'#{title}', by #{author} added to caffo's book queue.")
+      when "current"
+        post.body  = "Started reading '#{title}', by #{author}"
+        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}")        
+      when "finished"
+        taken = self.days_taken
+        post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
+        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days")
+    end
+    post.save
+  end
+
   def update_status
-    if status == 2
-      self.finished_on = Time.now
-    elsif status == 1
-      self.started_on = Time.now
-    else
-      self.created_at = Time.now
-    end
-  end  
-  
-  def rss_post
-    if status == 2
-      rss_finished_book
-      twitter_finished_book
-    elsif status == 1
-      rss_started_book
-      twitter_started_book
-    else
-      rss_new_book
-      twitter_new_book
+    case self.new_status
+      when "current"
+        self.start_reading!
+      when "finished"
+        self.finish!
     end
   end
-  
-  def rss_new_book
-    post = FeedItem.new
-    post.title = "#{title}"
-    post.body  = "'#{title}', by #{author} added to caffo's book queue."
-    post.save
-  end
 
-  def rss_finished_book
-    taken = self.days_taken
-    post = FeedItem.new
-    post.title = "#{title}"
-    post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"
-    post.save
+  def create_media
+    self.update_media("next")
   end
-
-  def rss_started_book
-    post = FeedItem.new
-    post.title = "#{title}"
-    post.body  = "Started reading '#{title}', by #{author}"
-    post.save
-  end
-
-  def twitter_new_book
-    status = TWITTER.status(:post, "'#{title}', by #{author} added to caffo's book queue.")
-  end
-
-  def twitter_finished_book
-    status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days")
-  end
-  
-  def twitter_started_book
-    status = TWITTER.status(:post, "Started reading '#{title}', by #{author}")
-  end
-
 end

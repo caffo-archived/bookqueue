@@ -4,9 +4,9 @@ before_filter :login_required, :except => [:index,:rss]
   # GET /books
   # GET /books.xml
   def index
-    @current   = Book.find_all_by_status(1)
-    @next      = Book.find_all_by_status(0)
-    @finished  = Book.find(:all, :conditions => ["status = 2"], :order => "finished_on")
+    @current   = Book.find_all_by_state("current")
+    @next      = Book.find_all_by_state("next")
+    @finished  = Book.find(:all, :conditions => ["state = 'finished'"], :order => "finished_on")
     
     respond_to do |format|
       format.html # index.rhtml
@@ -43,7 +43,6 @@ before_filter :login_required, :except => [:index,:rss]
     respond_to do |format|
       if @book.save        
         flash[:notice] = 'Book was successfully created.'
-        @book.rss_post        
         format.html { redirect_to books_path }
         format.xml  { head :created, :location => book_url(@book) }
       else
@@ -60,8 +59,7 @@ before_filter :login_required, :except => [:index,:rss]
     
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        @book.update_status && @book.save
-        @book.rss_post
+        #@book.rss_post
         flash[:notice] = 'Book was successfully updated.'
         format.html { redirect_to books_path }
         format.xml  { head :ok }
