@@ -12,12 +12,17 @@ class Book < ActiveRecord::Base
   state :finished, :enter  => Proc.new {|b| b.finished_on = Date.today; b.update_media("finished")}
   
   event :finish do    
-    transitions :from  => :current, :to    => :finished
+    transitions :from  => :current, :to => :finished
   end
 
   event :start_reading do
-    transitions :from  => :next, :to    => :current
+    transitions :from  => :next, :to      => :current
+    transitions :from  => :finished, :to  => :current
   end
+
+  event :stop_reading do
+    transitions :from  => :current, :to => :next
+  end  
   
   def days_taken
     if self.finished_on && self.started_on
@@ -50,6 +55,8 @@ class Book < ActiveRecord::Base
         self.start_reading!
       when "finished"
         self.finish!
+      when "next"
+        self.stop_reading!
     end
   end
 

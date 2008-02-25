@@ -32,13 +32,16 @@
     <b>Started on</b><br />
     <%= f.date_select :started_on %>
   </p>
-	
 
   <p>
     <b>Status</b><br />
+    <i><%= @book.state %></i>
+  </p>
+	
+  <p>
+    <b>Change Status</b><br />
     <%= f.select :new_status, Book::STATUSES %>
   </p>
-
 
   <p>
     <%= submit_tag "Update" %>
