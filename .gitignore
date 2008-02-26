@@ -5,3 +5,4 @@ doc/api
 doc/app
 config/database.yml
 config/twitter.yml
+db/test.sqlite3
