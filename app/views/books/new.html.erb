@@ -2,7 +2,7 @@
 
 <%= error_messages_for :book %>
 
-<% form_for(:book, :url => books_path) do |f| %>
+<% form_for(:book, :url => books_path, :html => {:multipart => true}) do |f| %>
   <p>
     <b>Title</b><br />
     <%= f.text_field :title %>
@@ -18,6 +18,14 @@
     <%= f.text_field :image %>
   </p>
 
+	<p>
+		or
+	</p>
+
+	<p><b>Cover</b><br/>
+		<%= file_field :cover,:uploaded_data %>
+	</p>
+	
   <p>
     <b>Author</b><br />
     <%= f.text_field :author %>

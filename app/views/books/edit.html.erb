@@ -1,8 +1,7 @@
 <h1>Editing book</h1>
-
 <%= error_messages_for :book %>
 
-<% form_for(:book, :url => book_path(@book), :html => { :method => :put }) do |f| %>
+<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
   <p>
     <b>Title</b><br />
     <%= f.text_field :title %>
@@ -14,11 +13,6 @@
   </p>
 
   <p>
-    <b>Image</b><br />
-    <%= f.text_field :image %>
-  </p>
-
-  <p>
     <b>Author</b><br />
     <%= f.text_field :author %>
   </p>
@@ -27,6 +21,25 @@
     <b>Blurb</b><br />
     <%= f.text_area :blurb %>
   </p>
+
+	<hr>
+	
+  <p>
+    <b>Image</b><br />
+    <%= f.text_field :image %>
+  </p>
+
+
+	<p style="margin-left: 50px;">
+		<em>or</em>
+	</p>
+
+	<p><b>Cover</b><br/>
+		<%= file_field :cover, :uploaded_data %>
+	</p>
+
+	<hr>
+
 
   <p>
     <b>Status</b><br />
