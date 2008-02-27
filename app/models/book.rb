@@ -4,11 +4,11 @@ class Book < ActiveRecord::Base
   attr_accessor :new_status
   
   after_create  :create_media
-  before_update :update_status
+  before_update :update_status!
   
   acts_as_state_machine :initial => :next
   state :next
-  state :current,  :enter  => Proc.new {|b| b.update_media("current")}
+  state :current,  :enter  => Proc.new {|b| b.started_on  = Date.today; b.update_media("current")}
   state :finished, :enter  => Proc.new {|b| b.finished_on = Date.today; b.update_media("finished")}
   
   event :finish do    
@@ -37,19 +37,19 @@ class Book < ActiveRecord::Base
     case state
       when "next"
         post.body  = "'#{title}', by #{author} added to caffo's book queue."
-        status = TWITTER.status(:post, "'#{title}', by #{author} added to caffo's book queue.")
+        status = TWITTER.status(:post, "'#{title}', by #{author} added to caffo's book queue.") unless NO_TWITTER
       when "current"
         post.body  = "Started reading '#{title}', by #{author}"
-        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}")        
+        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") unless NO_TWITTER
       when "finished"
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
-        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days")
+        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") unless NO_TWITTER 
     end
     post.save
   end
 
-  def update_status
+  def update_status!
     case self.new_status
       when "current"
         self.start_reading!
