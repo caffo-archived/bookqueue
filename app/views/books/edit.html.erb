@@ -35,6 +35,7 @@
 	
   <p>
     <b>Change Status</b><br />
+		<% Book::STATUSES.insert(0,' ') %>
     <%= f.select :new_status, Book::STATUSES %>
   </p>
 
