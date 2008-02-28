@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session, :controller => 'sessions'
 
-  map.home '', :controller => 'books'
-  map.rss '/rss/', :controller => 'books', :action => 'rss'
+  map.home '',         :controller => 'books'
+  map.rss '/rss/',     :controller => 'books', :action => 'rss'
 
   map.resources :books
   map.resources :users
