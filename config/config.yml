@@ -1,0 +1,22 @@
+# bookqueue config variables
+
+# site_url          - your website address. Please include http://
+# site_owner        - your name. will appear in feed items and tweets
+# send_twitter      - set this to yes to enable twitter notification (yes / no)
+# 
+# DO NOT FORGET TO SET YOUR TWITTER ACCOUNT AT /config/twitter.yml
+
+development:
+  site_url: http://lolxenuqueue.com/
+  site_owner: xenu
+  send_twitter: yes
+  
+test:
+  site_url: http://lolxenuqueue.com/  
+  site_owner: xenu
+  send_twitter: no
+
+production:
+  site_url: http://lolxenuqueue.com/
+  site_owner: xenu
+  send_twitter: yes

@@ -36,15 +36,15 @@ class Book < ActiveRecord::Base
     post.title = "#{title}"
     case state
       when "next"
-        post.body  = "'#{title}', by #{author} added to caffo's book queue."
-        status = TWITTER.status(:post, "'#{title}', by #{author} added to caffo's book queue.") unless NO_TWITTER
+        post.body  = "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue."
+        status = TWITTER.status(:post, "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue.") if APP_CONFIG['send_twitter']
       when "current"
         post.body  = "Started reading '#{title}', by #{author}"
-        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") unless NO_TWITTER
+        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") if APP_CONFIG['send_twitter']
       when "finished"
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
-        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") unless NO_TWITTER 
+        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if APP_CONFIG['send_twitter']
     end
     post.save
   end

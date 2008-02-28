@@ -2,8 +2,8 @@ class FeedItem < ActiveRecord::Base
 before_save :fill_defaults
 
   def fill_defaults
-    self.link    = 'http://books.nodecaf.org/'
-    self.author = 'caffo'
+    self.link    = APP_CONFIG['site_url']
+    self.author  = APP_CONFIG['site_author']
   end
   
 end

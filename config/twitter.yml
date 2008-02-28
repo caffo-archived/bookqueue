@@ -1,0 +1,11 @@
+development:
+  login: xenuqueue
+  password: xenu21
+
+test:
+  login: xenuqueue
+  password: xenu21
+
+production:
+  login: xenuqueue
+  password: xenu21
