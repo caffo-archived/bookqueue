@@ -13,6 +13,6 @@ class FeedItemTest < Test::Unit::TestCase
       books(:oldman).start_reading!
       books(:oldman).finish!
       assert_equal 4, FeedItem.count
-      assert_equal "'Old Man Wars', by John Scalzi - finished in 102 days", FeedItem.find(:all).last.body
+      assert_equal "'Old Man Wars', by John Scalzi - finished in 0 days", FeedItem.find(:all).last.body
   end
 end
