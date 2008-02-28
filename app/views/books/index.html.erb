@@ -1,7 +1,6 @@
 
 <div id="container">
 	<% if @current && @current.size > 0%>
-		<hr>
 		<h1>Current Book</h1>
 		<table border="0" id="current">  
 			<% for book in @current %>
@@ -12,8 +11,8 @@
 	<% end %>
 
 	<% if @next && @next.size > 0 %>
-	<hr>
 	<% @current_item = 0 %>
+		<hr>
 		<h1>Next Books</h1>
 		<table border="0">  
 			<tr>
