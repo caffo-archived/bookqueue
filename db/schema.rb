@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 14) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 8) do
     t.date     "finished_on"
     t.text     "blurb"
     t.string   "state",       :default => "next"
+  end
+
+  create_table "covers", :force => true do |t|
+    t.string   "content_type"
+    t.integer  "size"
+    t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "book_id"
   end
 
   create_table "feed_items", :force => true do |t|
