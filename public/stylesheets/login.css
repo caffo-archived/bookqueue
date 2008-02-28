@@ -1,0 +1,165 @@
+body {
+	font-family: lucida grande, verdana, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	text-align: center;
+	padding-top: 20px;
+}
+
+html, body {
+	background: #e3d9bd;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+/*-------------------------------------------------
+MODAL DIALOG
+-------------------------------------------------*/
+
+.oldmodal div#Container { background: none; }
+
+#Modal {
+	border: 10px solid #d0c7ae;
+	background: #fff;
+  text-align: left;
+  width: 650px;
+	margin: 5px auto;
+}
+
+#Modal div.inner {
+  margin: 15px 20px 10px 20px;
+}
+
+#Modal div.submit {
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  margin-top: 20px;
+  color: #999;
+}
+
+#Modal div.submit a:link,
+#Modal div.submit a:visited {
+  color: red;
+}
+
+#Modal div.submit input {
+  font-size: 16px;
+}
+/*-------------------------------------------------
+MODAL: LOGIN SCREEN
+-------------------------------------------------*/
+
+.login div#Modal {
+  width: 500px;
+  margin: 20px auto 0 auto;
+}
+
+.login div#Modal div.inner {
+  margin-bottom: 15px;
+}
+
+.login img#logo {
+  float: left;
+}
+
+.login div#errorMessage, .login div#Message {
+	text-align: left;
+	font-weight: bold;
+	border-top: 1px solid #c99;
+	border-bottom: 1px solid #c99;
+	padding: 5px;
+	font-size: 11px;
+	margin: 0 0 0 90px;
+	background: #c00;
+	color: #fff;
+}
+
+.login div#errorMessage a:link,
+.login div#errorMessage a:visited {
+  color: #fff;
+}
+
+.login div#Message {
+  background: #080;
+}
+
+.login div.Container {
+	/*width: 500px;*/
+	margin: 60px auto 20px auto;
+}
+
+.login h1 {
+	margin-bottom: 20px;
+}
+
+.login dl {
+	margin: 10px 0 0 93px;
+}
+
+.login dt {
+	float: left;
+	clear: right;
+	width: 80px;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+}
+
+.login dd {
+	margin: 0 0 5px 0px;
+	font-size: 11px;
+	line-height: 24px;
+	color: #666;
+	margin-left: 85px;
+}
+
+.login input {
+	font-size: 14px;
+}
+
+.login input#password {
+	width: 180px;
+}
+
+.login input#username {
+  width: 150px;
+}
+
+.login div#First {
+  width: 500px;
+  margin: 60px auto -30px auto;
+}
+
+.login div#First h1 {
+  font-size: 16px;
+  color: #c30;
+  margin: 0 0 3px 0;
+}
+
+.login div#First h2 {
+  font-size: 14px;
+  color: #000;
+  margin: 0 0 2px 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.login div#First p {
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+body.login div.below {
+	width: 520px;
+	margin: 5px auto 0 auto;
+	font-size: 10px;
+	padding: 0;
+	text-align: right;
+}
+
+body.login div.below a {
+	color: #666;
+}

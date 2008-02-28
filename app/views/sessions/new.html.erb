@@ -1,14 +1,38 @@
-<% form_tag session_path do -%>
-<p><label for="login">Login</label><br/>
-<%= text_field_tag 'login' %></p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<p><label for="password">Password</label><br/>
-<%= password_field_tag 'password' %></p>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="robots" content="noindex,nofollow" />
+	<%= stylesheet_link_tag 'login' %>
+  <title>login to your bookqueue</title>
+</head>
 
-<!-- Uncomment this if you want this functionality
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
--->
+<body class="oldmodal login"
+  onload="document.forms[0].elements[0].focus();">
 
-<p><%= submit_tag 'Log in' %></p>
-<% end -%>
+<div id="Container">  
+  <div id="Modal">
+    <div class="inner">
+      <% form_tag session_path do -%>
+        <dl>
+          <div class="user_name_and_password_login">
+            <dt>Username:</dt>
+            <dd><%= text_field_tag 'login' %></dd>
+            <dt>Password:</dt>
+            <dd>
+              <%= password_field_tag 'password' %>
+            </dd>
+          </div>
+          <dd>
+           	<%= submit_tag 'Log in' %>
+          </dd>
+        </dl>
+			<% end -%>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

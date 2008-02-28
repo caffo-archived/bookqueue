@@ -7,12 +7,22 @@
   <title><%= APP_CONFIG['site_owner'] %>'s book queue</title>
   <%= stylesheet_link_tag 'scaffold' %>
  	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss"/>
+	
+	<style type="text/css" media="screen">
+		#notice {background-color: #ffffcc; margin: 0 auto; padding: 5px; border: yellow 1px solid; text-align: center; width: 600px; margin-top: 20px;}
+	</style>
+	
 </head>
 <body>
 <div id="header">
 <%= APP_CONFIG['site_title'] %>
 </div>
-<p style="color: green"><%= flash[:notice] %></p>
+<% if flash[:notice] %>
+<p id="notice">
+	<%= flash[:notice] %>
+</p>
+<% end %>
+
 <%= yield  %>
 <div id="footer">&nbsp;</div>
 </body>
