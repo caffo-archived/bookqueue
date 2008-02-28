@@ -6,6 +6,8 @@ class Book < ActiveRecord::Base
   after_create  :create_media
   before_update :update_status!
   
+  has_one :cover
+  
   acts_as_state_machine :initial => :next
   state :next
   state :current,  :enter  => Proc.new {|b| b.started_on  = Date.today; b.update_media("current")}

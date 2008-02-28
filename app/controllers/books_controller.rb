@@ -40,8 +40,13 @@ before_filter :login_required, :except => [:index,:rss]
   def create
     @book = Book.new(params[:book])
 
+    if params[:cover] && params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO"
+      @book.cover = Cover.new(params[:cover]) 
+      @book.cover.save
+    end
+
     respond_to do |format|
-      if @book.save        
+      if @book.save 
         flash[:notice] = 'Book was successfully created.'
         format.html { redirect_to books_path }
         format.xml  { head :created, :location => book_url(@book) }
@@ -56,10 +61,14 @@ before_filter :login_required, :except => [:index,:rss]
   # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
+
+    if params[:cover] && params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO"
+      @book.cover = Cover.new(params[:cover]) 
+      @book.cover.save
+    end
     
     respond_to do |format|
-      if @book.update_attributes(params[:book])
-        #@book.rss_post
+      if @book.update_attributes(params[:book]) 
         flash[:notice] = 'Book was successfully updated.'
         format.html { redirect_to books_path }
         format.xml  { head :ok }
