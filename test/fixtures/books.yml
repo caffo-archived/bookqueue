@@ -49,3 +49,44 @@ dream:
   finished_on: 2007-12-07 00:00:00
   blurb: Software is easy to make, except when you want it to do something new," Rosenberg observes—but the catch is that "the only software worth making is software that does something new." This two-tiered insight comes from years of observing a team led by Mitch Kapor (the creator of the Lotus 1-2-3 spreadsheet) in its efforts to create a "personal information manager" that can handle to-do lists as easily as events scheduling and address books. 
   state: finished
+enders:
+  id: 6
+  title: Ender's Game
+  url: http://en.wikipedia.org/wiki/Ender's_Game
+  image: http://www.mtlaurel.lib.nj.us/child/childimages/endersgame.jpg
+  author: Orson Scott Card
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-11-30 00:00:00
+  blurb: or the 20th anniversary of Card's Hugo and Nebula Award–winning novel, Audio Renaissance brings to life the story of child genius Ender Wiggin, who must save the world from malevolent alien "buggers." In his afterword, Card declares, "The ideal presentation of any book of mine is to have excellent actors perform it in audio-only format," and he gets his wish. 
+  state: finished
+gotrek:
+  id: 7
+  title: Gotrek and Felix Vol 1
+  url: http://en.wikipedia.org/wiki/Gotrek_and_Felix/
+  image: http://upload.wikimedia.org/wikipedia/en/a/ad/Gotrex_and_Felix_hardcover.jpg
+  author: Bill King 
+  created_at: 2007-11-17 17:26:40
+  blurb: The adventures of the Black Library’s most famous characters are collected together into one great value omnibus edition! Dwarf trollslayer Gotrek Gurnisson has sworn to seek an honourable death in combat to atone for an unspoken personal disgrace. Chronicling his exploits is human poet Felix Jaeger, a fugitive from the authorities who only has to stay alive to tell the tale! Bringing together the first three novels in the series (Trollslayer, Skavenslayer and Daemonslayer).
+halting:
+  id: 8
+  title: Halting State
+  url: http://en.wikipedia.org/wiki/Halting_State
+  image: http://www.fantasticfiction.co.uk/images/n44/n221957.jpg
+  author: Orson Scott Card
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-11-21 00:00:00
+  blurb: In the year 2018, Sergeant Sue Smith of the Edinburgh constabulary is called in on a special case. A daring bank robbery has taken place at Hayek Associates, a dot-com startup company that's just been floated on the London stock exchange. The suspects are a band of marauding orcs, with a dragon in tow for fire support, and the bank is located within the virtual reality land of Avalon Four.
+  state: finished
+chameleon:
+  id: 9
+  title: A Spell for Chameleon
+  url: http://en.wikipedia.org/wiki/A_Spell_for_Chameleon
+  image: http://roxielupin.files.wordpress.com/2007/08/xanth1_chameleon.jpg
+  author: Piers Anthony
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-11-26 00:00:00
+  blurb: In this adventure, Bink is banned from Xanth and exiled into drear Mundania (the non-magical portion of Earth) for his apparent lack of a magic talent. He eventually returns in the company of Chameleon, a woman whose intelligence and beauty vary inversely depending on the time of the month, and the evil magician Trent who was exiled 20 years earlier for attempting to usurp the throne of Xanth.
+  state: finished
