@@ -6,6 +6,7 @@ oldman:
   image: http://upload.wikimedia.org/wikipedia/en/e/e4/OldMansWar%281stEd%29.jpg
   author: John Scalzi
   created_at: 2007-11-17 17:26:40
+  blurb: With his wife dead and buried, and life nearly over at 75, John Perry takes the only logical course of action left him:he joins the army. Now better known as the Colonial Defense Force (CDF).
 cryptonomicon:
   id: 2
   title: Cryptonomicon
@@ -13,3 +14,38 @@ cryptonomicon:
   image: http://upload.wikimedia.org/wikipedia/en/9/93/Cryptonomicon%281stEd%29.jpg
   author: Neal Stephenson
   created_at: 2007-11-17 17:26:40
+  blurb: Computer expert Randy Waterhouse spearheads a movement to create a safe haven for data in a world where information equals power and big business and government seek to control the flow of knowledge. His ambitions collide with a top-secret conspiracy with links to the encryption wars of World War II and his grandfather's work in preventing the Nazis from discovering that the Allies had cracked their supposedly unbreakable Enigma code. The author of Snow Crash (LJ 4/1/92) focuses his eclectic vision on a story of epic proportions, encompassing both the beginnings of information technology in the 1940s and the blossoming of the present cybertech revolution.
+  state: current
+fragile:
+  id: 3
+  title: Fragile Things
+  url: http://fictionwise.com/ebooks/eBook40796.htm
+  image: http://fictionwise.com/mindwise/books/big_Gaiman-FTWonders-drm.jpg
+  author: Neil Gaiman
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-11-20 00:00:00
+  blurb: A mysterious circus terrifies an audience for one extraordinary performance before disappearing into the night, taking one of the spectators along with it . . . In a novella set two years after the events of American Gods, Shadow pays a visit to an ancient Scottish mansion, and finds himself trapped in a game of murder and monsters . . . In a Hugo Award-winning short story set in a strangely altered Victorian England, the great detective Sherlock Holmes must solve a most unsettling royal murder . . . Two teenage boys crash a party and meet the girls of their dreams, and nightmares . . . In a Locus Award-winning tale, the members of an excusive epicurean club lament that they've eaten everything that can be eaten, with the exception of a legendary, rare, and exceedingly dangerous Egyptian bird . . . Such marvelous creations and more, including a short story set in the world of The Matrix, and others set in the worlds of gothic fiction and children's fiction, can be found in this extraordinary collection, which showcases Gaiman's storytelling brilliance, as well as his terrifyingly entertaining, dark, sense of humor. By turns, delightful, disturbing, and diverting, Fragile Things is a gift of literary enchantment, from one of the most unique writers of our time.
+  state: finished
+down:
+  id: 4
+  title: Down and Out in the Magic Kingdom
+  url: http://craphound.com/down/
+  image: http://craphound.com/down/images/cover-small.jpg
+  author: Cory Doctorow
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-12-21 00:00:00
+  blurb: Welcome to Bitchun society, where all today's commonplace problems have been solved:even death is a minor inconvenience, since one can make regular backups. Our hero has gone to Disneyland--his habit at times of major personal crisis--where he works for the ad-hocracy that runs the Haunted Mansion and the Hall of Presidents. It is a great honor to be working on the pinnacle of late-twentieth-century cultural and artistic achievement--Disneyland, that would be--and it inspires great loyalty.
+  state: finished
+dream:
+  id: 5
+  title: Dreaming in Code
+  url: http://www.dreamingincode.com/
+  image: http://trashotron.com/agony/images/2007/07-reviews/rosenberg-dreaming_in_code.jpg
+  author: Scott Rosenberg
+  created_at: 2007-11-17 17:26:40
+  started_on: 2007-11-17 17:26:40
+  finished_on: 2007-12-07 00:00:00
+  blurb: Software is easy to make, except when you want it to do something new," Rosenberg observes—but the catch is that "the only software worth making is software that does something new." This two-tiered insight comes from years of observing a team led by Mitch Kapor (the creator of the Lotus 1-2-3 spreadsheet) in its efforts to create a "personal information manager" that can handle to-do lists as easily as events scheduling and address books. 
+  state: finished
