@@ -1,4 +1,5 @@
-<h1>Editing book</h1>
+<div class="form">
+	<h1>Editing book</h1>
 <%= error_messages_for :book %>
 
 <% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
@@ -42,7 +43,7 @@
 
 
   <p>
-    <b>Status</b><br />
+    <b>Current Status</b><br />
     <i><%= @book.state %></i>
   </p>
 	
@@ -56,6 +57,5 @@
     <%= submit_tag "Update" %>
   </p>
 <% end %>
-
-<%= link_to 'Show', book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+</div>
