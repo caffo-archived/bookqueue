@@ -15,7 +15,12 @@
 </head>
 <body>
 <div id="header">
-<%= APP_CONFIG['site_title'] %>
+<% if logged_in? %>
+	<%= link_to "New Book", new_book_url %> |
+	<%= link_to "Logout", session_path,:method => :delete %>
+<% else %>
+	<%= APP_CONFIG['site_title'] %>
+<% end %>
 </div>
 <% if flash[:notice] %>
 <p id="notice">
