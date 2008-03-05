@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   STATUSES = ['next', 'current','finished']
-
+  RATES    = ['1', '2', '3', '4', '5'] 
+  
   attr_accessor :new_status
   
   after_create  :create_media

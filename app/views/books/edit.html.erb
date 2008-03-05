@@ -53,6 +53,22 @@
     <%= f.select :new_status, Book::STATUSES %>
   </p>
 
+	<hr>
+	<% if @book.rate %>
+	<p>
+    <b>Current Rate</b><br />
+    <i><%= @book.rate %></i>
+  </p>
+	<% end %>
+	
+	<p>
+    <b>Rate</b><br />
+		<% Book::RATES.insert(0,' ') %>
+    <%= f.select :rate, Book::RATES %>
+  </p>
+	
+	<hr/>
+	
   <p>
     <%= submit_tag "Update" %>
   </p>

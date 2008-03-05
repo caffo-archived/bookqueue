@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 14) do
     t.date     "finished_on"
     t.text     "blurb"
     t.string   "state",       :default => "next"
+    t.integer  "rate"
   end
 
   create_table "covers", :force => true do |t|
