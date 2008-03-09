@@ -53,6 +53,15 @@
     <%= f.select :new_status, Book::STATUSES %>
   </p>
 
+	<% if @book.state == "finished" %>
+	<hr>
+  <p>
+    <b>Days Taken</b><br />
+    <%= f.text_field :days_taken %>
+  </p>
+	<% end %>
+
+
 	<hr>
 	<% if @book.rate %>
 	<p>

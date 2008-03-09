@@ -12,7 +12,9 @@ class Book < ActiveRecord::Base
   acts_as_state_machine :initial => :next
   state :next
   state :current,  :enter  => Proc.new {|b| b.started_on  = Date.today; b.update_media("current")}
-  state :finished, :enter  => Proc.new {|b| b.finished_on = Date.today; b.update_media("finished")}
+  state :finished, :enter  => Proc.new {|b| b.finished_on = Date.today
+                                            b.days_taken  = b.calculate_days_taken
+                                            b.update_media("finished")}
   
   event :finish do    
     transitions :from  => :current, :to => :finished
@@ -27,7 +29,7 @@ class Book < ActiveRecord::Base
     transitions :from  => :current, :to => :next
   end  
   
-  def days_taken
+  def calculate_days_taken
     if self.finished_on && self.started_on
       (self.finished_on.to_date - self.started_on.to_date).to_i
     end
