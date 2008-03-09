@@ -65,7 +65,10 @@ before_filter :login_required, :except => [:index,:rss]
   def update
     @book = Book.find(params[:id])
 
-    if params[:cover] && params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO"
+    if params[:cover] && (
+    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO" || 
+    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedTempfile" 
+    		)
       @book.cover = Cover.new(params[:cover]) 
       @book.cover.save
     end
