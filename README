@@ -21,6 +21,7 @@ the current features includes:
 - rake db:migrate
 - rake
 - rake db:fixtures:load
+- modify app/models/cover.rb to use your image processor of choice (default is rmagick)
 
 that will get the database created, the tests done and some sample data - including an 
 admin user, quentin. You can authenticate as an administrator accessing /login (quentin's 
