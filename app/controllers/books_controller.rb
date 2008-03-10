@@ -64,25 +64,32 @@ before_filter :login_required, :except => [:index,:rss]
   # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
+      
+     # If a cover was uploaded, check if its a valid upload and create the cover object
+     if params[:cover] && (
+     		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO" || 
+     		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedTempfile" 
+     		)
 
-    if params[:cover] && (
-    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO" || 
-    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedTempfile" 
-    		)
-      @book.cover = Cover.new(params[:cover]) 
-      @book.cover.save
-    end
-    
-    respond_to do |format|
-      if @book.update_attributes(params[:book]) 
-        flash[:notice] = 'Book was successfully updated.'
-        format.html { redirect_to books_path }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @book.errors.to_xml }
-      end
-    end
+       @book.cover = Cover.new(params[:cover]) 
+       @book.cover.save
+     end
+
+     # If book is already rated and the POST try to zero it, override the parameter value
+     if params[:book]['rate'].strip.empty?
+        params[:book].delete("rate")
+   	 end
+
+     respond_to do |format|
+       if @book.update_attributes(params[:book])          
+         flash[:notice] = 'Book was successfully updated.'
+         format.html { redirect_to books_path }
+         format.xml  { head :ok }
+       else
+         format.html { render :action => "edit" }
+         format.xml  { render :xml => @book.errors.to_xml }
+       end
+     end
   end
 
   # DELETE /books/1
