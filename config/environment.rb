@@ -1,3 +1,4 @@
+RAILS_GEM_VERSION = '2.0.2'
 ENV['RAILS_ENV'] ||= 'production'
 
 require File.join(File.dirname(__FILE__), 'boot')
