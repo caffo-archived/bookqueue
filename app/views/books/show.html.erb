@@ -11,7 +11,14 @@
 	  <td style="vertical-alignment: top;" valign="top">
 				<h3>
 					<%= link_to @book.title, @book.url %>
-					<small style="color: #76614e;"><%= render :partial => 'admin_actions',  :locals => { :book => @book } %></small>
+					<small style="color: #76614e;">
+							<% if logged_in? %>
+								&raquo;
+								<%= link_to 'Edit', edit_book_path(@book) %> 
+								<small style="color: #76614e;">&nbsp;|&nbsp;</small>
+								<%= link_to 'Destroy', book_path(@book), :confirm => 'Are you sure?', :method => :delete %>
+							<% end %>
+					</small>
 				</h3>
 				<p class="current_author">
 					by <%= h @book.author %>					
