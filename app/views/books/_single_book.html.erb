@@ -6,7 +6,7 @@
 			<% end %>
 		</td>
     <td class="book_description">
-				<%= link_to book.title, book.url %><br/>
+				<%= link_to book.title, book_url(book) %><br/>
 				by <%= h book.author %><br/>
 			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
 		</td>
