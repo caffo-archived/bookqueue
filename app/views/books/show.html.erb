@@ -1,33 +1,26 @@
-<p>
-  <b>Title:</b>
-  <%=h @book.title %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%=h @book.url %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%=h @book.image %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%=h @book.author %>
-</p>
-
-<p>
-  <b>Started on:</b>
-  <%=h @book.started_on %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%=h @book.created_at %>
-</p>
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<div id="container">
+<table border="0" id="current">  
+	<tr>
+	  <td valign="top" style="padding-top: 25px;">
+			<% if @book.cover %>
+				<%= image_tag @book.cover.public_filename, {:style => 'height: 246px; width: 184px;'} %>
+			<% else %>
+				<%= image_tag @book.image, {:style => 'height: 246px; width: 184px;'} %>
+			<% end %>
+		</td>
+	  <td style="vertical-alignment: top;" valign="top">
+				<h3>
+					<%= link_to @book.title, @book.url %>
+					<small style="color: #76614e;"><%= render :partial => 'admin_actions',  :locals => { :book => @book } %></small>
+				</h3>
+				<p class="current_author">
+					by <%= h @book.author %>					
+					<h3><% if @book.rate %><%= show_rating(@book.rate) %><% end %></h3>
+				</p>
+				<p class="current_blurb"><%= @book.blurb %></p>
+				<p><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>
+				<p><%= link_to 'Back', books_path %></p>
+		</td>
+	</tr>
+</table>				
+</div>

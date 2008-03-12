@@ -91,7 +91,7 @@ h1    {font-size: 22px; margin-top: 20px;}
 .finished_book_cover {width: 50px;}
 
 .current_author {margin-top: -10px;}
-.current_blurb  {color: #666;}
+.current_blurb  {color: #666; text-align: justify;}
 .form {margin: 0 auto; background-color: #fff; border: 10px solid #d0c7ae; padding: 10px; width: 350px; padding-left: 20px;}
 #container {margin: 0 auto; width: 600px;}
 #current {width: 600px;}

@@ -1,4 +1,5 @@
 			<% if logged_in? %>
-				<%= link_to 'Edit', edit_book_path(book) %>		
+				<%= link_to 'Edit', edit_book_path(book) %> 
+				<small style="color: #76614e;">&nbsp;|&nbsp;</small>
 				<%= link_to 'Destroy', book_path(book), :confirm => 'Are you sure?', :method => :delete %>
 			<% end %>

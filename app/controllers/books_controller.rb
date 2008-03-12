@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-before_filter :login_required, :except => [:index,:rss]
+before_filter :login_required, :except => [:index,:rss,:show]
 
   # GET /books
   # GET /books.xml
