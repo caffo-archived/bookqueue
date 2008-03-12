@@ -9,6 +9,10 @@ class Book < ActiveRecord::Base
   
   has_one :cover
   
+  validates_presence_of :title, :message => "can't be blank"
+  validates_presence_of :url,   :message => "can't be blank"
+  validates_presence_of :blur,  :message => "can't be blank"
+  
   acts_as_state_machine :initial => :next
   state :next
   state :current,  :enter  => Proc.new {|b| b.started_on  = Date.today; b.update_media("current")}
