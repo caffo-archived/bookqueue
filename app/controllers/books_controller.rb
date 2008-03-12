@@ -76,7 +76,7 @@ before_filter :login_required, :except => [:index,:rss]
      end
 
      # If book is already rated and the POST try to zero it, override the parameter value
-     if params[:book]['rate'].strip.empty?
+     if params[:book]['rate'] && params[:book]['rate'].strip.empty?
         params[:book].delete("rate")
    	 end
 
