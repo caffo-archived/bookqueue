@@ -70,7 +70,14 @@ class BooksControllerTest < Test::Unit::TestCase
    def test_should_create_book
      login_as :quentin
      old_count = Book.count
-     post :create, :book => { }
+     post :create, :book => {
+       :title      => 'Conan', 
+       :url        => 'http://www.amazon.com/Coming-Conan-Cimmerian-Cimmeria-Book/dp/0345461517', 
+       :image      => 'http://www.timelineuniverse.net/images/ConanCimmerian.jpg', 
+       :author     => 'Robert E. Howard',
+       :created_at => '2008-01-01 17:26:40',
+       :blurb      => 'lol'
+     }
      assert_equal old_count+1, Book.count
 
      assert_redirected_to books_path

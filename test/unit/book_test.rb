@@ -55,7 +55,8 @@ class BookTest < Test::Unit::TestCase
                     :url        => 'http://www.amazon.com/Coming-Conan-Cimmerian-Cimmeria-Book/dp/0345461517', 
                     :image      => 'http://www.timelineuniverse.net/images/ConanCimmerian.jpg', 
                     :author     => 'Robert E. Howard',
-                    :created_at => '2008-01-01 17:26:40'
+                    :created_at => '2008-01-01 17:26:40',
+                    :blurb      => 'lol'
                     }.merge(options))
     end
 end
