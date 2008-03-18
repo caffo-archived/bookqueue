@@ -9,9 +9,10 @@ class Book < ActiveRecord::Base
   
   has_one :cover
   
-  validates_presence_of :title,  :message => "can't be blank"
-  validates_presence_of :url,    :message => "can't be blank"
-  validates_presence_of :blurb,  :message => "can't be blank"
+  validates_presence_of :title,   :message => "can't be blank"
+  validates_presence_of :url,     :message => "can't be blank"
+  validates_presence_of :blurb,   :message => "can't be blank"
+  validates_presence_of :author,  :message => "can't be blank"
   
   acts_as_state_machine :initial => :next
   state :next
