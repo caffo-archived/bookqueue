@@ -1,8 +1,8 @@
   <td class="finished_book_cover">
 		<% if book.cover %>
-			<%= image_tag book.cover.public_filename, {:style => 'height: 66px; width: 49px;'} %>
+			<%= link_to [image_tag book.cover.public_filename, {:style => 'height: 66px; width: 49px;'}], book_url(book) %>
 		<% else %>
-			<%= image_tag book.image, {:style => 'height: 66px; width: 49px;'} %>
+			<%= link_to [image_tag book.image, {:style => 'height: 66px; width: 49px;'}], book_url(book)  %>
 		<% end %>
 		</td>
   <td class="finished_book_description">
