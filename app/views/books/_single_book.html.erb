@@ -1,9 +1,5 @@
     <td class="book_cover">
-			<% if !book.cover.nil? %>
-				<%= link_to [image_tag(book.cover.public_filename,{:style => 'height: 98px; width: 74px;'})], book_url(book) %>
-			<% else %>
-				<%= link_to [image_tag(book.image, {:style => 'height: 98px; width: 74px;'})], book_url(book) %>
-			<% end %>
+			<%= link_to show_cover(book,'medium'), book_url(book) %>	
 		</td>
     <td class="book_description">
 				<%= link_to book.title, book_url(book) %><br/>

@@ -1,10 +1,6 @@
 <tr>
   <td>
-		<% if book.cover %>
-			<%= link_to [image_tag book.cover.public_filename, {:style => 'height: 164px; width: 123px;'}], book_url(book) %>
-		<% else %>
-			<%= link_to [image_tag book.image, {:style => 'height: 164px; width: 123px;'}], book_url(book) %>
-		<% end %>
+		<%= link_to show_cover(book,'large'), book_url(book) %>	
 	</td>
   <td style="vertical-alignment: top;" valign="top">
 			<h3><%= link_to book.title, book_url(book) %></h3>

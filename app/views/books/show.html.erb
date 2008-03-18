@@ -2,11 +2,7 @@
 <table border="0" id="current">  
 	<tr>
 	  <td valign="top" style="padding-top: 25px;">
-			<% if @book.cover %>
-				<%= image_tag @book.cover.public_filename, {:style => 'height: 246px; width: 184px;'} %>
-			<% else %>
-				<%= image_tag @book.image, {:style => 'height: 246px; width: 184px;'} %>
-			<% end %>
+		<%= link_to show_cover(@book,'original'), book_url(@book) %>	
 		</td>
 	  <td style="vertical-alignment: top;" valign="top">
 				<h3>
