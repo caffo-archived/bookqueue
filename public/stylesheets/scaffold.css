@@ -106,3 +106,5 @@ h1    {font-size: 22px; margin-top: 20px;}
 	}
 #header a {color: #d7cea1; font-weight: bolder;}
 #header img {border: 0;}
+
+#errorExplanation {width: 320px;}
