@@ -1,5 +1,6 @@
 <div class="form">
 	<h1>Editing book</h1>
+	<hr>
 <%= error_messages_for :book %>
 
 <% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
@@ -79,8 +80,7 @@
 	<hr/>
 	
   <p>
-    <%= submit_tag "Update" %>
+    <%= submit_tag "Update", {:class => 'button'} %>&nbsp;&nbsp;or&nbsp;&nbsp;<%= link_to 'Cancel', books_path %>
   </p>
 <% end %>
-<%= link_to 'Back', books_path %>
 </div>

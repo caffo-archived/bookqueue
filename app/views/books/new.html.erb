@@ -1,5 +1,6 @@
 <div class="form">
 <h1>New book</h1>
+<hr/>
 <%= error_messages_for :book %>
 
 <% form_for(:book, :url => books_path, :html => {:multipart => true}) do |f| %>
@@ -40,8 +41,7 @@
   </p>
 
   <p>
-    <%= submit_tag "Create" %>
+    <%= submit_tag "Create", {:class => 'button'} %>&nbsp;&nbsp;or&nbsp;&nbsp;<%= link_to 'Cancel', books_path %>
   </p>
 <% end %>
-<%= link_to 'Back', books_path %>
 </div>

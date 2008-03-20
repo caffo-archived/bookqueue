@@ -1,5 +1,5 @@
 body {
-	font-family: lucida grande, verdana, sans-serif;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: 12px;
 	margin: 0;
 	text-align: center;
@@ -119,13 +119,6 @@ MODAL: LOGIN SCREEN
 	font-size: 14px;
 }
 
-.login input#password {
-	width: 180px;
-}
-
-.login input#username {
-  width: 150px;
-}
 
 .login div#First {
   width: 500px;
@@ -162,4 +155,40 @@ body.login div.below {
 
 body.login div.below a {
 	color: #666;
+}
+
+
+input {
+	background:#FFFFFF url(/images/bg_input.gif) repeat-x scroll left bottom;
+	border:1px solid #B3B3B3;
+ 	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size:110%;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	padding:5px;
+}
+
+.button {
+background:#FA47A2 url(/images/bg_button.gif) repeat-x scroll 0pt 100%;
+border:1px solid #75604d;
+color:#FFFFFF;
+cursor:pointer;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size:135%;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+padding:6px 12px;
+width: 80px;
+}
+
+input:focus, input:hover, textarea:hover {
+border:1px solid #75604d;
 }
