@@ -105,11 +105,26 @@
 	<% end %>
 </div>
 
+<!-- book review -->
+<div id="book_review" style="display:none">
+	<h3>Write a review</h3>
+	<hr>
+	<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
+	  <p>
+	    <b>Review</b><br />
+	    <%= f.text_area :review %>
+	  </p>
+ 	<%= submit_tag "Review", {:class => 'button'} %>
+	<% end %>
+</div>
+
+
 <div id="sidebar">
 	<li><a href="#book_cover" rel="facebox">Change book cover</a></li>
 	<li><a href="#book_status" rel="facebox">Modify book status</a></li>
 	<% if @book.state == "finished" %>
 	<li><a href="#book_rate" rel="facebox">Rate finished book</a></li>
+	<li><a href="#book_review" rel="facebox">Write a review</a></li>
 	<% end %>
 </div>
 <br style="clear:both;">

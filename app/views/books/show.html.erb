@@ -1,13 +1,14 @@
 <style type="text/css" media="screen">
 	table {width: 600px;}
 	td    {padding: 10px;}
+	#review {margin-top: -30px;}
 </style>
 
 
 <div id="container">
 <table border="0" id="current">  
 	<tr>
-	  <td valign="top" style="padding-top: 25px;">
+	  <td valign="top" style="padding-top: 25px; width: 150px;">
 		<%= link_to show_cover(@book,'original'), book_url(@book) %>	
 		</td>
 	  <td style="vertical-alignment: top;" valign="top">
@@ -31,5 +32,14 @@
 				<p><%= link_to 'Back', books_path %></p>
 		</td>
 	</tr>
-</table>				
+</table>
+
+<% if @book.review %>
+<div id="review">
+	<h1>Review</h1>
+	<hr>
+	<p><%= @book.review.gsub(/\n/,"<br/>") %></p>
+</div>
+<% end %>
+
 </div>

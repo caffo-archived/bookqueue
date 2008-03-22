@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 17) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 16) do
     t.string   "state",       :default => "next"
     t.integer  "rate"
     t.integer  "days_taken"
+    t.text     "review"
   end
 
   create_table "covers", :force => true do |t|
