@@ -2,8 +2,9 @@
 	ul {margin-top: 50px;}
 	li {font-size: 13px;}
 </style>
+
 <div class="form">
-<div style="float: left;">
+<div id="main_form">
 		<h1>Editing book</h1>
 		<hr>
 	<%= error_messages_for :book %>
@@ -104,14 +105,12 @@
 	<% end %>
 </div>
 
-<div id="sidebar" style="float:left;">
-<ul>
+<div id="sidebar">
 	<li><a href="#book_cover" rel="facebox">Change book cover</a></li>
 	<li><a href="#book_status" rel="facebox">Modify book status</a></li>
 	<% if @book.state == "finished" %>
 	<li><a href="#book_rate" rel="facebox">Rate finished book</a></li>
 	<% end %>
-</ul>
 </div>
 <br style="clear:both;">
 </div>
