@@ -8,6 +8,11 @@ class Book < ActiveRecord::Base
   before_update :update_status!
   
   has_one :cover
+  has_and_belongs_to_many :related_books, 
+                          :class_name => 'Book', 
+                          :foreign_key => 'related_id', 
+                          :join_table => 'related_books',
+                          :order => 'title ASC'
   
   validates_presence_of :title,   :message => "can't be blank"
   validates_presence_of :url,     :message => "can't be blank"

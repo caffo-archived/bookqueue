@@ -32,7 +32,8 @@ before_filter :login_required, :except => [:index,:rss,:show]
 
   # GET /books/1;edit
   def edit
-    @book = Book.find(params[:id])
+    @book  = Book.find(params[:id])
+    @books = Book.find(:all, :order => 'title ASC')
   end
 
   # POST /books
@@ -108,6 +109,32 @@ before_filter :login_required, :except => [:index,:rss,:show]
   def rss
     @posts = FeedItem.find(:all, :order => 'created_at DESC')
     render :layout => false
+  end
+
+  def relate
+    book = Book.find(params[:id])
+    related_book = Book.find(params[:related_id])
+    if book && related_book
+      book.related_books << related_book
+      flash[:notice] = 'Book relationship done.'
+      redirect_to edit_book_path(book.id)
+    end
+  rescue
+    flash[:notice] = 'There was an error relating these books. (Books already related)'
+    redirect_to edit_book_path(book.id)
+  end
+
+  def remove_relationship
+    book = Book.find(params[:id])
+    related_book = Book.find(params[:related_id])
+    if book && related_book
+      book.related_books.delete(related_book)
+      flash[:notice] = 'Book relationship removed.'
+      redirect_to edit_book_path(book.id)
+    end
+  rescue
+    flash[:notice] = 'There was an error removing the relationship between these  books.'
+    redirect_to edit_book_path(book.id)
   end
 
 end

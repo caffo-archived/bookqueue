@@ -118,10 +118,38 @@
 	<% end %>
 </div>
 
+<!-- related books -->
+<div id="book_related" style="display:none;">
+	<h3>Related Books</h3>
+	<hr>
+	<select name="some_name" id="some_name"  onchange="document.location='/books/relate/<%= @book.id %>/?related_id='+this.value;" size="1" style="margin-bottom: 20px;">
+		<% @books.each do |book| %>
+
+			<% display = true %>
+			<% display = false if @book.id == book.id %>
+			
+			<% if display %>
+				<option value="<%= book.id %>"><%= book.title %></option>	
+			<% end %>
+
+		<% end %>
+	</select>
+	
+	<% if @book.related_books %>
+			
+			<% @book.related_books.each do |book| %>
+			<li>
+				<%= book.title %>&nbsp;
+				<%= link_to image_tag('trash.gif'), "/books/remove_relationship/#{@book.id}/?related_id=#{book.id}" %>
+			</li>
+			<% end %>
+	<% end %>
+</div>
 
 <div id="sidebar">
 	<li><a href="#book_cover" rel="facebox">Change book cover</a></li>
 	<li><a href="#book_status" rel="facebox">Modify book status</a></li>
+	<li><a href="#book_related" rel="facebox">Relate  with other books</a></li>
 	<% if @book.state == "finished" %>
 	<li><a href="#book_rate" rel="facebox">Rate finished book</a></li>
 	<li><a href="#book_review" rel="facebox">Write a review</a></li>
