@@ -1,86 +1,116 @@
+<style type="text/css" media="screen">
+	ul {margin-top: 50px;}
+	li {font-size: 13px;}
+</style>
 <div class="form">
-	<h1>Editing book</h1>
-	<hr>
-<%= error_messages_for :book %>
+<div style="float: left;">
+		<h1>Editing book</h1>
+		<hr>
+	<%= error_messages_for :book %>
 
-<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
+	<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
+	  <p>
+	    <b>Title</b><br />
+	    <%= f.text_field :title %>
+	  </p>
 
-  <p>
-    <b>Url</b><br />
-    <%= f.text_field :url %>
-  </p>
+	  <p>
+	    <b>Url</b><br />
+	    <%= f.text_field :url %>
+	  </p>
 
-  <p>
-    <b>Author</b><br />
-    <%= f.text_field :author %>
-  </p>
+	  <p>
+	    <b>Author</b><br />
+	    <%= f.text_field :author %>
+	  </p>
 
-  <p>
-    <b>Blurb</b><br />
-    <%= f.text_area :blurb %>
-  </p>
+	  <p>
+	    <b>Blurb</b><br />
+	    <%= f.text_area :blurb %>
+	  </p>
 
-	<hr>
+		<% if @book.state == "finished" %>
+		<hr>
+	  <p>
+	    <b>Days Taken</b><br />
+	    <%= f.text_field :days_taken %>
+	  </p>
+		<% end %>
 	
-  <p>
-    <b>Image</b><br />
-    <%= f.text_field :image %>
-  </p>
-
-
-	<p style="margin-left: 50px;">
-		<em>or</em>
-	</p>
-
-	<p><b>Cover</b><br/>
-		<%= file_field :cover, :uploaded_data %>
-	</p>
-
-	<hr>
-
-
-  <p>
-    <b>Current Status</b><br />
-    <i><%= @book.state %></i>
-  </p>
-	
-  <p>
-    <b>Change Status</b><br />
-		<% Book::STATUSES.insert(0,' ') %>
-    <%= f.select :new_status, Book::STATUSES %>
-  </p>
-
-	<% if @book.state == "finished" %>
-	<hr>
-  <p>
-    <b>Days Taken</b><br />
-    <%= f.text_field :days_taken %>
-  </p>
+	  <p>
+	    <%= submit_tag "Update", {:class => 'button'} %>&nbsp;&nbsp;or&nbsp;&nbsp;<%= link_to 'Cancel', books_path %>
+	  </p>
 	<% end %>
+</div>
 
-
+<!-- book cover -->
+<div id="book_cover" style="display:none">
+	<h3>Book Cover</h3>
 	<hr>
-	<% if @book.rate %>
-	<p>
-    <b>Current Rate</b><br />
-    <i><%= @book.rate %></i>
-  </p>
+	<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
+	  <p>
+	    <b>Image</b><br />
+	    <%= f.text_field :image %>
+	  </p>
+
+
+		<p style="margin-left: 50px;">
+			<em>or</em>
+		</p>
+
+		<p><b>Cover</b><br/>
+			<%= file_field :cover, :uploaded_data %>
+		</p>
+	 <%= submit_tag "Update", {:class => 'button'} %>	
 	<% end %>
+</div>
+
+<!-- book status -->
+<div id="book_status" style="display:none">
+	<h3>Change Status</h3>
+	<hr>
+	<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
+	  <p>
+	    <b>Current Status</b><br />
+	    <i><%= @book.state %></i>
+	  </p>
 	
-	<p>
-    <b>Rate</b><br />
-		<% Book::RATES.insert(0,' ') %>
-    <%= f.select :rate, Book::RATES %>
-  </p>
+	  <p>
+	    <b>Change Status</b><br />
+			<% Book::STATUSES.insert(0,' ') %>
+	    <%= f.select :new_status, Book::STATUSES %>
+	  </p>
+ 	<%= submit_tag "Update", {:class => 'button'} %>	
+	<% end %>
+</div>
+
+<!-- book rate -->
+<div id="book_rate" style="display:none">
+	<h3>Rate book</h3>
+	<hr>
+	<% form_for(:book, :url => book_path(@book), :html => {:multipart => true, :method => :put }) do |f| %>
+		<% if @book.rate %>
+		<p>
+	    <b>Current Rate</b><br />
+	    <i><%= @book.rate %></i>
+	  </p>
+		<% end %>
 	
-	<hr/>
-	
-  <p>
-    <%= submit_tag "Update", {:class => 'button'} %>&nbsp;&nbsp;or&nbsp;&nbsp;<%= link_to 'Cancel', books_path %>
-  </p>
-<% end %>
+		<p>
+	    <b>Rate</b><br />
+			<% Book::RATES.insert(0,' ') %>
+	    <%= f.select :rate, Book::RATES %>
+	  </p>
+ 	<%= submit_tag "Rate", {:class => 'button'} %>
+	<% end %>
+</div>
+
+<div id="sidebar" style="float:left;">
+<ul>
+	<li><a href="#book_cover" rel="facebox">Change book cover</a></li>
+	<li><a href="#book_status" rel="facebox">Modify book status</a></li>
+	<li><a href="#book_rate" rel="facebox">Rate finished book</a></li>
+</ul>
+</div>
+<br style="clear:both;">
 </div>
