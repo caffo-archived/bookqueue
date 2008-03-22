@@ -80,8 +80,6 @@ div.progressBar div.background {
 }
 
 hr 	  {color: #7e7e7b; background-color: #7e7e7b; margin-bottom: 10px;}
-table {width: 600px;}
-td    {padding: 10px;}
 img   {border: 1px solid #666;}
 h1    {font-size: 22px; margin-top: 20px;}
 .book_description {width: 200px;}
@@ -92,7 +90,7 @@ h1    {font-size: 22px; margin-top: 20px;}
 
 .current_author {margin-top: -10px;}
 .current_blurb  {color: #666; text-align: justify;}
-.form {margin: 0 auto; background-color: #fff; border: 10px solid #d0c7ae; padding: 10px; width: 470px; padding-left: 20px;}
+.form {margin: 0 auto; background-color: #fff; border: 10px solid #d0c7ae; padding: 10px; width: 600px; padding-left: 20px;}
 #container {margin: 0 auto; width: 600px;}
 #current {width: 600px;}
 #header  {
