@@ -30,7 +30,6 @@
 	  </p>
 
 		<% if @book.state == "finished" %>
-		<hr>
 	  <p>
 	    <b>Days Taken</b><br />
 	    <%= f.text_field :days_taken %>
@@ -109,7 +108,9 @@
 <ul>
 	<li><a href="#book_cover" rel="facebox">Change book cover</a></li>
 	<li><a href="#book_status" rel="facebox">Modify book status</a></li>
+	<% if @book.state == "finished" %>
 	<li><a href="#book_rate" rel="facebox">Rate finished book</a></li>
+	<% end %>
 </ul>
 </div>
 <br style="clear:both;">

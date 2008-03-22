@@ -1,3 +1,6 @@
+<style type="text/css" media="screen">
+	.form {width: 470px;}
+</style>
 <div class="form">
 <h1>New book</h1>
 <hr/>
@@ -18,7 +21,12 @@
     <b>Author</b><br />
     <%= f.text_field :author %>
   </p>
+  <p>
+    <b>Blurb</b><br />
+    <%= f.text_area :blurb %>
+  </p>
 
+	<h3>Cover</h3>
 	<hr/>
   <p>
     <b>Image</b><br />
@@ -35,10 +43,6 @@
 	
 	<hr/>
 
-  <p>
-    <b>Blurb</b><br />
-    <%= f.text_area :blurb %>
-  </p>
 
   <p>
     <%= submit_tag "Create", {:class => 'button'} %>&nbsp;&nbsp;or&nbsp;&nbsp;<%= link_to 'Cancel', books_path %>

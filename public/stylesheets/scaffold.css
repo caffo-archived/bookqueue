@@ -164,3 +164,9 @@ input {
 	width: 420px;
 }
 
+hr {
+	background-color: #ddd;
+	color: #ddd;
+	height: 1px;
+
+}
