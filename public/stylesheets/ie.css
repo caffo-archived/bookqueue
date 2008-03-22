@@ -1,0 +1,10 @@
+input      { width: 400px; }
+#sidebar   { float:left;width: 150px; padding:0; margin:0; margin-top: 60px; }
+#main_form { float: left; width: 400px; }
+
+hr {
+  background-color: #666;
+  color: #666;
+  height: 1px;
+ 
+}
