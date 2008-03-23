@@ -10,10 +10,10 @@
 	<tr>
 	  <td valign="top" style="padding-top: 20px; width: 150px;">
 		<div><small><%= link_to 'return to index &#8617;', books_path %></small></div>
-		<%= link_to show_cover(@book,'original'), book_url(@book) %>	
+		<div style="margin-top:10px;"><%= link_to show_cover(@book,'original'), book_url(@book) %> </div>
 		</td>
 	  <td style="vertical-alignment: top;" valign="top">
-				<h3>
+				<h3 style="margin-top:35px;">
 					<%= link_to @book.title, @book.url %>
 				</h3>
 				<p class="current_author">
@@ -34,24 +34,29 @@
 	</tr>
 </table>
 
+
 <% if @book.review %>
-<div id="review">
-	<h1>Review</h1>
-	<hr>	
-	<p><%= @book.review.gsub(/\n/,"<br/>") %></p>
+<div id="review" style="margin-top:5px; margin-bottom: 45px;">
+        <h1>Review</h1>
+        <hr>
+        <p class="current_blurb" style="font-size: 12px;"><%= @book.review.gsub(/\n/,"<br/>") %></p>
 </div>
 <% end %>
 
 <% if @book.related_books && @book.related_books.size > 0 %>
+<div id="related" style=margin-top: 5px;">
 <h1>Related Books</h1>
 <hr>
-<% @current_item = 0 %>	
-<table border="0">  
-	<tr>
-	<% for book in @book.related_books %>
-		<%= render :partial => 'finished_book', :locals => { :book => book }  %>
-		<% end %>
+<% @current_item = 0 %>
+<table border="0">
+        <tr>
+        <% for book in @book.related_books %>
+                <%= render :partial => 'finished_book', :locals => { :book => book }  %>
+                <% end %>
 </table>
+</div>
 <% end %>
+
+
 
 </div>
