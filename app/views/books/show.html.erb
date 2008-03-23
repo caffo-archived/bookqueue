@@ -8,28 +8,28 @@
 <div id="container">
 <table border="0" id="current">  
 	<tr>
-	  <td valign="top" style="padding-top: 25px; width: 150px;">
+	  <td valign="top" style="padding-top: 20px; width: 150px;">
+		<div><small><%= link_to 'return to index &#8617;', books_path %></small></div>
 		<%= link_to show_cover(@book,'original'), book_url(@book) %>	
 		</td>
 	  <td style="vertical-alignment: top;" valign="top">
 				<h3>
 					<%= link_to @book.title, @book.url %>
+				</h3>
+				<p class="current_author">
+					by <%= h @book.author %>					
+					<h3><% if @book.rate %><%= show_rating(@book.rate) %><% end %></h3>
 					<small style="color: #76614e;">
 							<% if logged_in? %>
-								&raquo;
 								<%= link_to 'Edit', edit_book_path(@book) %> 
 								<small style="color: #76614e;">&nbsp;|&nbsp;</small>
 								<%= link_to 'Destroy', book_path(@book), :confirm => 'Are you sure?', :method => :delete %>
 							<% end %>
 					</small>
-				</h3>
-				<p class="current_author">
-					by <%= h @book.author %>					
-					<h3><% if @book.rate %><%= show_rating(@book.rate) %><% end %></h3>
+					
 				</p>
 				<p class="current_blurb"><%= @book.blurb %></p>
 				<p><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>
-				<p><%= link_to 'Back', books_path %></p>
 		</td>
 	</tr>
 </table>
@@ -37,9 +37,21 @@
 <% if @book.review %>
 <div id="review">
 	<h1>Review</h1>
-	<hr>
+	<hr>	
 	<p><%= @book.review.gsub(/\n/,"<br/>") %></p>
 </div>
+<% end %>
+
+<% if @book.related_books && @book.related_books.size > 0 %>
+<h1>Related Books</h1>
+<hr>
+<% @current_item = 0 %>	
+<table border="0">  
+	<tr>
+	<% for book in @book.related_books %>
+		<%= render :partial => 'finished_book', :locals => { :book => book }  %>
+		<% end %>
+</table>
 <% end %>
 
 </div>

@@ -123,6 +123,7 @@
 	<h3>Related Books</h3>
 	<hr>
 	<select name="some_name" id="some_name"  onchange="document.location='/books/relate/<%= @book.id %>/?related_id='+this.value;" size="1" style="margin-bottom: 20px;">
+		<option value="">---</option>
 		<% @books.each do |book| %>
 
 			<% display = true %>
