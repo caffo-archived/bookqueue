@@ -46,7 +46,7 @@
   }
 
   $.facebox.settings = {
-    loading_image : '/facebox/loading.gif',
+    loading_image : '/javascripts/facebox/loading.gif',
     close_image   : '/javascripts/facebox/closelabel.gif',
     image_types   : [ 'png', 'jpg', 'jpeg', 'gif' ],
     facebox_html  : '\
