@@ -128,7 +128,7 @@
 
 			<% display = true %>
 			<% display = false if @book.id == book.id %>
-			
+			<% display = false if @book.related_books.find(book.id) rescue display = true %>
 			<% if display %>
 				<option value="<%= book.id %>"><%= book.title %></option>	
 			<% end %>

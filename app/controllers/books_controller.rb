@@ -116,6 +116,7 @@ before_filter :login_required, :except => [:index,:rss,:show]
     related_book = Book.find(params[:related_id])
     if book && related_book
       book.related_books << related_book
+      related_book.related_books << book
       flash[:notice] = 'Book relationship done.'
       redirect_to edit_book_path(book.id)
     end
@@ -133,7 +134,7 @@ before_filter :login_required, :except => [:index,:rss,:show]
       redirect_to edit_book_path(book.id)
     end
   rescue
-    flash[:notice] = 'There was an error removing the relationship between these  books.'
+    flash[:notice] = 'There was an error removing the relationship between these books.'
     redirect_to edit_book_path(book.id)
   end
 
