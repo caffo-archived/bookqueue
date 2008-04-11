@@ -1,6 +1,6 @@
 class FixRelatedBooksTable < ActiveRecord::Migration
   def self.up
-    execute "ALTER TABLE `related_books` DROP `id`;"
+    remove_column :related_books, :id
   end
 
   def self.down
