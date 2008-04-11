@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 18) do
+ActiveRecord::Schema.define(:version => 20) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(:version => 18) do
     t.text     "review"
   end
 
-  create_table "books_books", :id => false, :force => true do |t|
-    t.integer "book_id"
-    t.integer "related_id"
-  end
-
   create_table "covers", :force => true do |t|
     t.string   "content_type"
     t.integer  "size"
@@ -38,6 +33,8 @@ ActiveRecord::Schema.define(:version => 18) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "book_id"
+    t.string   "thumbnail"
+    t.integer  "parent_id"
   end
 
   create_table "feed_items", :force => true do |t|
@@ -48,7 +45,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.datetime "created_at"
   end
 
-  create_table "related_books", :force => true do |t|
+  create_table "related_books", :id => false, :force => true do |t|
     t.integer "book_id"
     t.integer "related_id"
   end

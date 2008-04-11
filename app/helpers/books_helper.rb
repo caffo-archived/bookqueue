@@ -22,21 +22,24 @@ end
 def show_cover(book,size)
   case size
   when "small"
-    height = "66px"
-    width  = "49px"
+    height  = "66px"
+    width   = "49px"
+    version = :small
   when "medium"
     height = "98px"
     width  = "74px"
+   version = :medium    
   when "large"
     height = "164px"
     width  = "123px"
+    version = :large
   when "original"
     height = "246px"
     width  = "184px"    
   end
   
   if !book.cover.nil?
-		response = image_tag book.cover.public_filename, {:style => "height: #{height}; width: #{width}"}
+		response = image_tag book.cover.public_filename(version), {:style => "height: #{height}; width: #{width}"}
   elsif !book.image.empty?
 		response = image_tag book.image, {:style => "height: #{height}; width: #{width}"}		
   else
