@@ -1,0 +1,5 @@
+<ul title="Current" selected="true">
+	<% @current.each do |book| %>
+    <li><%= link_to book.title, '/iphone/show/'+book.id.to_s %></li>
+	<% end %>
+</ul>

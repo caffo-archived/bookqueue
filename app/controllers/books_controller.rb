@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 before_filter :login_required, :except => [:index,:rss,:show]
+before_filter :iphone_check, :only =>[:index]
 
   # GET /books
   # GET /books.xml
@@ -9,8 +10,8 @@ before_filter :login_required, :except => [:index,:rss,:show]
     @finished  = Book.find(:all, :conditions => ["state = 'finished'"], :order => "finished_on")
     
     respond_to do |format|
-      format.html # index.rhtml
-      format.xml  { render :xml => @books.to_xml }
+      format.html   # index.rhtml
+      format.xml    { render :xml => @books.to_xml }
     end
   end
 
@@ -138,4 +139,7 @@ before_filter :login_required, :except => [:index,:rss,:show]
     redirect_to edit_book_path(book.id)
   end
 
+  def iphone_check
+    redirect_to :controller => 'iphone' if iphone_user_agent?
+  end
 end

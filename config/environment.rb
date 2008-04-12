@@ -15,3 +15,4 @@ require('twitter/console')
 
 twitter_config =  File.join(File.dirname(__FILE__), '..', 'config', 'twitter.yml')
 TWITTER        = Twitter::Client.from_config(twitter_config)
+
