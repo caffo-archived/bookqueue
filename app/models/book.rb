@@ -35,7 +35,7 @@ class Book < ActiveRecord::Base
   end
 
   event :start_reading do
-    transitions :from  => :next, :to      => :current
+    transitions :from  => :next,     :to  => :current
     transitions :from  => :finished, :to  => :current
   end
 
