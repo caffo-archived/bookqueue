@@ -1,17 +1,17 @@
 class IphoneController < ApplicationController
 
 def current
-   @current = Book.find_all_by_state("current")
+   @current = Book.current
    render :layout => false
 end
 
 def next
-  @next = Book.find_all_by_state("next")
+  @next = Book.next
   render :layout => false
 end
 
 def finished
-  @finished = Book.find(:all, :conditions => ["state = 'finished'"], :order => "finished_on")
+  @finished = Book.finished
   render :layout => false
 end
 

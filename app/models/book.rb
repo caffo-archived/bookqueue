@@ -13,6 +13,10 @@ class Book < ActiveRecord::Base
                           :foreign_key => 'related_id', 
                           :join_table => 'related_books',
                           :order => 'title ASC'
+
+  named_scope :finished, :conditions => ["state = 'finished'"], :order => "finished_on"
+  named_scope :current,  :conditions => ["state = 'current'"]
+  named_scope :next,     :conditions => ["state = 'next'"]
   
   validates_presence_of :title,   :message => "can't be blank"
   validates_presence_of :url,     :message => "can't be blank"
