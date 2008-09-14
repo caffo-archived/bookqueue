@@ -2,8 +2,8 @@ class FeedItem < ActiveRecord::Base
 before_save :fill_defaults
 
   def fill_defaults
-    self.link    = APP_CONFIG['site_url']
-    self.author  = APP_CONFIG['site_author']
+    self.link    = configatron.bookqueue.url
+    self.author  = configatron.owner.name
   end
   
 end

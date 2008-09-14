@@ -55,15 +55,15 @@ class Book < ActiveRecord::Base
     post.title = "#{title}"
     case state
       when "next"
-        post.body  = "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue."
-        status = TWITTER.status(:post, "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue.") if APP_CONFIG['send_twitter']
+        post.body  = "'#{title}', by #{author} added to #{configatron.owner.name}'s book queue."
+        status = TWITTER.status(:post, "'#{title}', by #{author} added to #{configatron.owner.name}'s book queue.") if configatron.twitter.use
       when "current"
         post.body  = "Started reading '#{title}', by #{author}"
-        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") if APP_CONFIG['send_twitter']
+        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") if configatron.twitter.use
       when "finished"
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
-        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if APP_CONFIG['send_twitter']
+        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if configatron.twitter.use
     end
     post.save
   end
