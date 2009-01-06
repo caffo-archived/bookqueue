@@ -60,6 +60,7 @@ enders:
   finished_on: 2007-11-30 00:00:00
   blurb: or the 20th anniversary of Card's Hugo and Nebula Award–winning novel, Audio Renaissance brings to life the story of child genius Ender Wiggin, who must save the world from malevolent alien "buggers." In his afterword, Card declares, "The ideal presentation of any book of mine is to have excellent actors perform it in audio-only format," and he gets his wish. 
   state: finished
+  rate: 3
 gotrek:
   id: 7
   title: Gotrek and Felix Vol 1
@@ -79,6 +80,7 @@ halting:
   finished_on: 2007-11-21 00:00:00
   blurb: In the year 2018, Sergeant Sue Smith of the Edinburgh constabulary is called in on a special case. A daring bank robbery has taken place at Hayek Associates, a dot-com startup company that's just been floated on the London stock exchange. The suspects are a band of marauding orcs, with a dragon in tow for fire support, and the bank is located within the virtual reality land of Avalon Four.
   state: finished
+  rate: 5
 chameleon:
   id: 9
   title: A Spell for Chameleon
@@ -90,3 +92,4 @@ chameleon:
   finished_on: 2007-11-26 00:00:00
   blurb: In this adventure, Bink is banned from Xanth and exiled into drear Mundania (the non-magical portion of Earth) for his apparent lack of a magic talent. He eventually returns in the company of Chameleon, a woman whose intelligence and beauty vary inversely depending on the time of the month, and the evil magician Trent who was exiled 20 years earlier for attempting to usurp the throne of Xanth.
   state: finished
+  rate: 2
