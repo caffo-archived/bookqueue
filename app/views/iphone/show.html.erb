@@ -1,20 +1,20 @@
 <div title="<%= @book.title %>">
-	<div id="cover" style="float: left; margin: 10px;">
+	<div id="cover">
 		<%= show_cover(@book,'medium') %>
 	</div>
-	<h2 style="margin-top: 2px;"><%= link_to @book.title, @book.url %></h2>
-	 <p style="margin-top: -5px;">by <%= h @book.author %></p>
-	 <p style="margin-top: -5px;"><% if @book.rate %><%= show_rating(@book.rate,"iphone") %><% end %></p>	
-	 <p style="margin: 10px; text-align: justify;"><%= @book.blurb.gsub(/\n/,"<br/>") if @book.blurb %></p>
-	 <p style="margin-left: 10px;"><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>	
+	<h2 class="book_title"><%= link_to @book.title, @book.url %></h2>
+	 <p class="book_author">by <%= h @book.author %></p>
+	 <p class="book_rate"><% if @book.rate %><%= show_rating(@book.rate,"iphone") %><% end %></p>	
+	 <p class="book_blurb"><%= @book.blurb.gsub(/\n/,"<br/>") if @book.blurb %></p>
+	 <p class="book_finished"><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>	
 
 	 <% if @book.review %>
-	 	<h3 style="margin-left: 10px;">Review</h3>
-	 	<p style="margin: 10px; text-align: justify;"><%= @book.review.gsub(/\n/,"<br/>") %></p>
+	 	<h3 class="review_title">Review</h3>
+	 	<p  class="review_body" ><%= @book.review.gsub(/\n/,"<br/>") %></p>
 	<% end %>
 
 	<% if @book.related_books && @book.related_books.size > 0 %>
-	<h3 style="margin-left: 10px;">Related Books</h3>
+	<h3 class="related_books">Related Books</h3>
 	<ul>
 		<% @book.related_books.each do |book| %>
 	    <li><%= link_to book.title, '/iphone/show/'+book.id.to_s %></li>
@@ -23,3 +23,16 @@
 	<% end %>
 </div>
 	
+	<style type="text/css" media="screen">
+	  #cover         { float: left; margin: 10px; }
+	  .book_author   { margin-top: -5px; }
+	  .book_title    { margin-top: 2px;  }
+	  .book_rate     { margin-top: -5px; }
+	  .book_blurb    { margin: 10px; text-align: justify; }
+	  .book_finished { margin-left: 10px; }
+	  
+	  .review_title  { margin-left: 10px; }
+	  .review_body   { margin: 10px; text-align: justify; }
+	  
+	  .related_books { margin-left: 10px; }
+	</style>
