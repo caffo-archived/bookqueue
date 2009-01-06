@@ -18,7 +18,8 @@ the current features includes:
 
 - mkdir log
 - create a config/database.yml (rename and edit config/database.yml.example)
-- rake gems:install
+- review the environment.rb file dependencies
+- rake gems:install (may require sudo)
 - rake db:migrate
 - rake
 - rake db:fixtures:load

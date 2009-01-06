@@ -7,8 +7,14 @@ require 'configatron'
 
 Rails::Initializer.run do |config|
 
+# twitter4r comment out because his schizo
+# namespace issue. As of right now, install
+# twitter4r manually using
+#
+# gem install twitter4r
+
   config.gem :rmagick
-  config.gem :twitter
+# config.gem :twitter 
   config.gem :json
   config.gem :configatron, :version => '2.2.1'
   
