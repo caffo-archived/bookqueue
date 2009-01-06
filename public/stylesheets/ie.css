@@ -1,10 +1,29 @@
-input      { width: 400px; }
-#sidebar   { float:left;width: 150px; padding:0; margin:0; margin-top: 60px; }
-#main_form { float: left; width: 400px; }
+/**
+	ie related fixes
+**/
 
-hr {
-  background-color: #666;
-  color: #666;
-  height: 1px;
- 
+#main_form
+{
+	float:left;
+	width:400px;
+}
+
+#sidebar
+{
+	float:left;
+	margin:60px 0 0;
+	padding:0;
+	width:150px;
+}
+
+hr
+{
+	background-color:#666;
+	color:#666;
+	height:1px;
+}
+
+input
+{
+	width:400px;
 }

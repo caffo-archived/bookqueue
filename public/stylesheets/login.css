@@ -1,194 +1,219 @@
-body {
-	font-family: Georgia, 'Times New Roman', Times, serif;
-	font-size: 12px;
-	margin: 0;
-	text-align: center;
-	padding-top: 20px;
+/**
+	login specific classes
+**/
+
+
+#Modal
+{
+	background:#fff;
+	border:10px solid #d0c7ae;
+	margin:5px auto;
+	text-align:left;
+	width:650px;
 }
 
-html, body {
-	background: #e3d9bd;
+#Modal div.inner
+{
+	margin:15px 20px 10px;
 }
 
-form {
-  margin: 0;
-  padding: 0;
-}
-/*-------------------------------------------------
-MODAL DIALOG
--------------------------------------------------*/
-
-.oldmodal div#Container { background: none; }
-
-#Modal {
-	border: 10px solid #d0c7ae;
-	background: #fff;
-  text-align: left;
-  width: 650px;
-	margin: 5px auto;
+#Modal div.submit
+{
+	border-top:1px solid #ccc;
+	color:#999;
+	margin-top:20px;
+	padding:10px 0;
 }
 
-#Modal div.inner {
-  margin: 15px 20px 10px 20px;
+#Modal div.submit a:link,#Modal div.submit a:visited
+{
+	color:red;
 }
 
-#Modal div.submit {
-  border-top: 1px solid #ccc;
-  padding: 10px 0;
-  margin-top: 20px;
-  color: #999;
+#Modal div.submit input
+{
+	font-size:16px;
 }
 
-#Modal div.submit a:link,
-#Modal div.submit a:visited {
-  color: red;
+.button
+{
+	background:#7d674c url(/images/bg_button.gif) repeat-x scroll 0 100%;
+	border:1px solid #75604d;
+	color:#FFF;
+	cursor:pointer;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-size:135%;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:400;
+	line-height:normal;
+	padding:6px 12px;
+	width:80px;
 }
 
-#Modal div.submit input {
-  font-size: 16px;
-}
-/*-------------------------------------------------
-MODAL: LOGIN SCREEN
--------------------------------------------------*/
-
-.login div#Modal {
-  width: 500px;
-  margin: 20px auto 0 auto;
+.login dd
+{
+	color:#666;
+	font-size:11px;
+	line-height:24px;
+	margin:0 0 5px 85px;
 }
 
-.login div#Modal div.inner {
-  margin-bottom: 15px;
+.login div#First
+{
+	margin:60px auto -30px;
+	width:500px;
 }
 
-.login img#logo {
-  float: left;
+.login div#First h1
+{
+	color:#c30;
+	font-size:16px;
+	margin:0 0 3px;
 }
 
-.login div#errorMessage, .login div#Message {
-	text-align: left;
-	font-weight: bold;
-	border-top: 1px solid #c99;
-	border-bottom: 1px solid #c99;
-	padding: 5px;
-	font-size: 11px;
-	margin: 0 0 0 90px;
-	background: #c00;
-	color: #fff;
+.login div#First h2
+{
+	color:#000;
+	font-size:14px;
+	font-weight:400;
+	margin:0 0 2px;
+	padding:0;
 }
 
-.login div#errorMessage a:link,
-.login div#errorMessage a:visited {
-  color: #fff;
+.login div#First p
+{
+	font-size:12px;
+	margin:0 0 10px;
+	padding:0;
 }
 
-.login div#Message {
-  background: #080;
+.login div#Message
+{
+	background:#080;
 }
 
-.login div.Container {
-	/*width: 500px;*/
-	margin: 60px auto 20px auto;
+.login div#Modal
+{
+	margin:20px auto 0;
+	width:500px;
 }
 
-.login h1 {
-	margin-bottom: 20px;
+.login div#Modal div.inner
+{
+	margin-bottom:15px;
 }
 
-.login dl {
-	margin: 10px 0 0 93px;
+.login div#errorMessage a:link,.login div#errorMessage a:visited
+{
+	color:#fff;
 }
 
-.login dt {
-	float: left;
-	clear: right;
-	width: 80px;
-	font-size: 14px;
-	line-height: 24px;
-	font-weight: normal;
+.login div#errorMessage,.login div#Message
+{
+	background:#c00;
+	border-bottom:1px solid #c99;
+	border-top:1px solid #c99;
+	color:#fff;
+	font-size:11px;
+	font-weight:700;
+	margin:0 0 0 90px;
+	padding:5px;
+	text-align:left;
 }
 
-.login dd {
-	margin: 0 0 5px 0px;
-	font-size: 11px;
-	line-height: 24px;
-	color: #666;
-	margin-left: 85px;
+.login div.Container
+{
+	margin:60px auto 20px;
 }
 
-.login input {
-	font-size: 14px;
+.login dl
+{
+	margin:10px 0 0 93px;
 }
 
-
-.login div#First {
-  width: 500px;
-  margin: 60px auto -30px auto;
+.login dt
+{
+	clear:right;
+	float:left;
+	font-size:14px;
+	font-weight:400;
+	line-height:24px;
+	width:80px;
 }
 
-.login div#First h1 {
-  font-size: 16px;
-  color: #c30;
-  margin: 0 0 3px 0;
+.login h1
+{
+	margin-bottom:20px;
 }
 
-.login div#First h2 {
-  font-size: 14px;
-  color: #000;
-  margin: 0 0 2px 0;
-  padding: 0;
-  font-weight: normal;
+.login img#logo
+{
+	float:left;
 }
 
-.login div#First p {
-  font-size: 12px;
-  margin: 0 0 10px 0;
-  padding: 0;
+.login input
+{
+	font-size:14px;
 }
 
-body.login div.below {
-	width: 520px;
-	margin: 5px auto 0 auto;
-	font-size: 10px;
-	padding: 0;
-	text-align: right;
+.oldmodal div#Container
+{
+	background:none;
 }
 
-body.login div.below a {
-	color: #666;
+body
+{
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-size:12px;
+	margin:0;
+	padding-top:20px;
+	text-align:center;
 }
 
+body.login div.below
+{
+	font-size:10px;
+	margin:5px auto 0;
+	padding:0;
+	text-align:right;
+	width:520px;
+}
 
-input {
-	background:#FFFFFF url(/images/bg_input.gif) repeat-x scroll left bottom;
+body.login div.below a
+{
+	color:#666;
+}
+
+form
+{
+	margin:0;
+	padding:0;
+}
+
+html,body
+{
+	background:#e3d9bd;
+}
+
+input
+{
+	background:#FFF url(/images/bg_input.gif) repeat-x scroll left bottom;
 	border:1px solid #B3B3B3;
- 	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family:Georgia, 'Times New Roman', Times, serif;
 	font-size:110%;
 	font-size-adjust:none;
 	font-stretch:normal;
 	font-style:normal;
 	font-variant:normal;
-	font-weight:normal;
+	font-weight:400;
 	line-height:normal;
 	padding:5px;
 }
 
-.button {
-background:#7d674c url(/images/bg_button.gif) repeat-x scroll 0pt 100%;
-border:1px solid #75604d;
-color:#FFFFFF;
-cursor:pointer;
-font-family: Georgia, 'Times New Roman', Times, serif;
-font-size:135%;
-font-size-adjust:none;
-font-stretch:normal;
-font-style:normal;
-font-variant:normal;
-font-weight:normal;
-line-height:normal;
-padding:6px 12px;
-width: 80px;
-}
-
-input:focus, input:hover, textarea:hover {
-border:1px solid #75604d;
+input:focus,input:hover,textarea:hover
+{
+	border:1px solid #75604d;
 }
