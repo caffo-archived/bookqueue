@@ -27,6 +27,7 @@ fragile:
   finished_on: 2007-11-20 00:00:00
   blurb: A mysterious circus terrifies an audience for one extraordinary performance before disappearing into the night, taking one of the spectators along with it . . . In a novella set two years after the events of American Gods, Shadow pays a visit to an ancient Scottish mansion, and finds himself trapped in a game of murder and monsters . . . In a Hugo Award-winning short story set in a strangely altered Victorian England, the great detective Sherlock Holmes must solve a most unsettling royal murder . . . Two teenage boys crash a party and meet the girls of their dreams, and nightmares . . . In a Locus Award-winning tale, the members of an excusive epicurean club lament that they've eaten everything that can be eaten, with the exception of a legendary, rare, and exceedingly dangerous Egyptian bird . . . Such marvelous creations and more, including a short story set in the world of The Matrix, and others set in the worlds of gothic fiction and children's fiction, can be found in this extraordinary collection, which showcases Gaiman's storytelling brilliance, as well as his terrifyingly entertaining, dark, sense of humor. By turns, delightful, disturbing, and diverting, Fragile Things is a gift of literary enchantment, from one of the most unique writers of our time.
   state: finished
+  rate: 5
 down:
   id: 4
   title: Down and Out in the Magic Kingdom
@@ -38,6 +39,7 @@ down:
   finished_on: 2007-12-21 00:00:00
   blurb: Welcome to Bitchun society, where all today's commonplace problems have been solved:even death is a minor inconvenience, since one can make regular backups. Our hero has gone to Disneyland--his habit at times of major personal crisis--where he works for the ad-hocracy that runs the Haunted Mansion and the Hall of Presidents. It is a great honor to be working on the pinnacle of late-twentieth-century cultural and artistic achievement--Disneyland, that would be--and it inspires great loyalty.
   state: finished
+  rate: 2
 dream:
   id: 5
   title: Dreaming in Code
@@ -49,6 +51,7 @@ dream:
   finished_on: 2007-12-07 00:00:00
   blurb: Software is easy to make, except when you want it to do something new," Rosenberg observes—but the catch is that "the only software worth making is software that does something new." This two-tiered insight comes from years of observing a team led by Mitch Kapor (the creator of the Lotus 1-2-3 spreadsheet) in its efforts to create a "personal information manager" that can handle to-do lists as easily as events scheduling and address books. 
   state: finished
+  rate: 3
 enders:
   id: 6
   title: Ender's Game
