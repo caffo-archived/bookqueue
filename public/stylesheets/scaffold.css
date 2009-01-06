@@ -1,8 +1,3 @@
-/**
-	application related code
-**/
-
-
 #container
 {
 	margin:0 auto;
@@ -87,12 +82,23 @@
 	width:600px;
 }
 
+#review
+{
+	margin-top:-30px;
+}
+
 #sidebar
 {
 	float:left;
 	margin-left:20px;
 	margin-top:50px;
 	width:150px;
+}
+
+#stats
+{
+	margin:0 0 auto;
+	width:600px;
 }
 
 .book_cover
