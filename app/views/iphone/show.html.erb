@@ -4,7 +4,7 @@
 	</div>
 	<h2 style="margin-top: 2px;"><%= link_to @book.title, @book.url %></h2>
 	 <p style="margin-top: -5px;">by <%= h @book.author %></p>
-	 <p  style="margin-top: -5px;"><% if @book.rate %><%= show_iphone_rating(@book.rate) %><% end %></p>	
+	 <p style="margin-top: -5px;"><% if @book.rate %><%= show_rating(@book.rate,"iphone") %><% end %></p>	
 	 <p style="margin: 10px; text-align: justify;"><%= @book.blurb.gsub(/\n/,"<br/>") if @book.blurb %></p>
 	 <p style="margin-left: 10px;"><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>	
 

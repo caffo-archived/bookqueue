@@ -6,7 +6,7 @@
 			by <%= h book.author %><br/>
 			<% if book.days_taken %> finished in <b><%= h book.days_taken %></b> days<% end %>
 			<% if book.rate %>
-				<%= show_rating(book.rate) %>
+				<%= show_rating(book.rate,"web") %>
 			<% end %>
 			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
 	</td>

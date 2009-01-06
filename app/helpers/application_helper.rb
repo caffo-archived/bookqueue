@@ -1,40 +1,19 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def show_rating(stars)
-    response = '<div class="rating">'
-    response << '<span style="color: #76614e">'
-
-    stars.downto(1) do
-      response << '&#9733;'
+  def show_rating(stars,layout)
+    if layout == "iphone"
+      star_tag    = image_tag 'star.png', :style => 'border: 0'
+      no_star_tag = image_tag 'no_star.png', :style => 'border: 0'
+    else
+      star_tag    = image_tag 'bullet_star.png', :style => 'border: 0'
+      no_star_tag = image_tag 'bullet_no_star.png', :style => 'border: 0'    
     end
-
-    response << '</span>'
-    response << '<span style="color: #d0c3a1">'
-
-    (5-stars).downto(1) do
-      response << '&#9733;'
-    end
-
-    response << '</span>'
-    response << '</div>'
-  end
-
-  def show_iphone_rating(stars)
-    response = '<div class="rating">'
-    response << '<span style="color: gold">'
-
-    stars.downto(1) do
-      response << '&#9733;'
-    end
-
-    response << '</span>'
-    response << '<span style="color: #eee">'
-
-    (5-stars).downto(1) do
-      response << '&#9733;'
-    end
-
-    response << '</span>'
+    
+    response    = '<div class="rating">'
+    
+        stars.downto(1) { response << star_tag    }
+    (5-stars).downto(1) { response << no_star_tag }
+    
     response << '</div>'
   end
   
