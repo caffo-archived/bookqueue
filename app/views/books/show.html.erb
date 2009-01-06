@@ -15,7 +15,7 @@
 				</h3>
 				<p class="current_author">
 					by <%= h @book.author %>					
-					<h3><% if @book.rate %><%= show_rating(@book.rate) %><% end %></h3>
+					<h3><% if @book.rate %><%= show_rating(@book.rate,"web") %><% end %></h3>
 					<small style="color: #76614e;">
 							<% if logged_in? %>
 								<%= link_to 'Edit', edit_book_path(@book) %> 
