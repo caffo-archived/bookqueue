@@ -10,7 +10,7 @@ Rails::Initializer.run do |config|
   config.gem :rmagick
   config.gem :twitter
   config.gem :json
-  config.gem :configatron
+  config.gem :configatron, :version => '2.2.1'
   
   config.time_zone = 'UTC'
   

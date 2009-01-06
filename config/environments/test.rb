@@ -21,23 +21,15 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-configatron do |config|
-  # bookqueue 
-  config.namespace(:bookqueue) do |bookqueue|
-    bookqueue.url     = "http://lolxenuqueue.com/"
-    bookqueue.title   = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
-  end
+# bookqueue 
+configatron.bookqueue.url   = "http://lolxenuqueue.com/"
+configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
 
-  # owner
-  config.namespace(:owner) do |owner|
-    owner.name   = "xenu"
-    owner.email  = "xenu@xenucorp.com"
-  end
+# owner
+configatron.owner.name   = "xenu"
+configatron.owner.email  = "xenu@xenucorp.com"
 
-  # twitter
-  config.namespace(:twitter) do |twitter|
-    twitter.use       = false
-    twitter.login     = "xenuqueue"
-    twitter.password  = "xenu21"
-  end
-end
+# twitter
+configatron.twitter.use      = true
+configatron.twitter.login     = "xenuqueue"
+configatron.twitter.password  = "xenu21"

@@ -16,23 +16,15 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-configatron do |config|
-  # bookqueue 
-  config.namespace(:bookqueue) do |bookqueue|
-    bookqueue.url     = "http://lolxenuqueue.com/"
-    bookqueue.title   = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
-  end
+# bookqueue 
+configatron.bookqueue.url   = "http://lolxenuqueue.com/"
+configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
 
-  # owner
-  config.namespace(:owner) do |owner|
-    owner.name   = "xenu"
-    owner.email  = "xenu@xenucorp.com"
-  end
+# owner
+configatron.owner.name   = "xenu"
+configatron.owner.email  = "xenu@xenucorp.com"
 
-  # twitter
-  config.namespace(:twitter) do |twitter|
-    twitter.use      = true
-    twitter.login     = "xenuqueue"
-    twitter.password  = "xenu21"
-  end
-end
+# twitter
+configatron.twitter.use      = true
+configatron.twitter.login     = "xenuqueue"
+configatron.twitter.password  = "xenu21"
