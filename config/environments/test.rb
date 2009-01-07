@@ -23,7 +23,7 @@ config.action_mailer.delivery_method = :test
 
 # bookqueue 
 configatron.bookqueue.url   = "http://lolxenuqueue.com/"
-configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
+configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/test.rb</em>"
 
 # owner
 configatron.owner.name   = "xenu"
