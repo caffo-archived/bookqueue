@@ -13,6 +13,10 @@ class Book < ActiveRecord::Base
                           :foreign_key => 'related_id', 
                           :join_table => 'related_books',
                           :order => 'title ASC'
+
+  named_scope :finished, :conditions => ["state = 'finished'"], :order => "finished_on"
+  named_scope :current,  :conditions => ["state = 'current'"]
+  named_scope :next,     :conditions => ["state = 'next'"]
   
   validates_presence_of :title,   :message => "can't be blank"
   validates_presence_of :url,     :message => "can't be blank"
@@ -31,7 +35,7 @@ class Book < ActiveRecord::Base
   end
 
   event :start_reading do
-    transitions :from  => :next, :to      => :current
+    transitions :from  => :next,     :to  => :current
     transitions :from  => :finished, :to  => :current
   end
 
@@ -51,15 +55,15 @@ class Book < ActiveRecord::Base
     post.title = "#{title}"
     case state
       when "next"
-        post.body  = "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue."
-        status = TWITTER.status(:post, "'#{title}', by #{author} added to #{APP_CONFIG['site_owner']}'s book queue.") if APP_CONFIG['send_twitter']
+        post.body  = "'#{title}', by #{author} added to #{configatron.owner.name}'s book queue."
+        status = TWITTER.status(:post, "'#{title}', by #{author} added to #{configatron.owner.name}'s book queue.") if configatron.twitter.use
       when "current"
         post.body  = "Started reading '#{title}', by #{author}"
-        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") if APP_CONFIG['send_twitter']
+        status = TWITTER.status(:post, "Started reading '#{title}', by #{author}") if configatron.twitter.use
       when "finished"
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
-        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if APP_CONFIG['send_twitter']
+        status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if configatron.twitter.use
     end
     post.save
   end

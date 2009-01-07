@@ -13,7 +13,23 @@ config.whiny_nils = true
 config.action_controller.consider_all_requests_local = true
 config.action_controller.perform_caching             = false
 
-# Tell ActionMailer not to deliver emails to the real world.
+# Disable request forgery protection in test environment
+config.action_controller.allow_forgery_protection    = false
+
+# Tell Action Mailer not to deliver emails to the real world.
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
+
+# bookqueue 
+configatron.bookqueue.url   = "http://lolxenuqueue.com/"
+configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config.yml</em>"
+
+# owner
+configatron.owner.name   = "xenu"
+configatron.owner.email  = "xenu@xenucorp.com"
+
+# twitter
+configatron.twitter.use       = false 
+configatron.twitter.login     = "xenuqueue"
+configatron.twitter.password  = "xenu21"

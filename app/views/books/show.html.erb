@@ -1,16 +1,13 @@
-<style type="text/css" media="screen">
-	table {width: 600px;}
-	td    {padding: 10px;}
-	#review {margin-top: -30px;}
-</style>
-
-
 <div id="container">
 <table border="0" id="current">  
 	<tr>
 	  <td valign="top" style="padding-top: 20px; width: 150px;">
-		<div><small><%= link_to 'return to index &#8617;', books_path %></small></div>
-		<div style="margin-top:10px;"><%= link_to show_cover(@book,'original'), book_url(@book) %> </div>
+  		<div>
+  		  <small><%= link_to 'return to index', books_path %></small>
+  		</div>
+  		<div style="margin-top:10px;">
+  		  <%= link_to show_cover(@book,'original'), book_url(@book) %>
+  		</div>
 		</td>
 	  <td style="vertical-alignment: top;" valign="top">
 				<h3 style="margin-top:35px;">
@@ -18,7 +15,7 @@
 				</h3>
 				<p class="current_author">
 					by <%= h @book.author %>					
-					<h3><% if @book.rate %><%= show_rating(@book.rate) %><% end %></h3>
+					<h3><% if @book.rate %><%= show_rating(@book.rate,"web") %><% end %></h3>
 					<small style="color: #76614e;">
 							<% if logged_in? %>
 								<%= link_to 'Edit', edit_book_path(@book) %> 
@@ -44,7 +41,7 @@
 <% end %>
 
 <% if @book.related_books && @book.related_books.size > 0 %>
-<div id="related" style=margin-top: 5px;">
+<div id="related" style="margin-top: 5px;">
 <h1>Related Books</h1>
 <hr>
 <% @current_item = 0 %>
@@ -56,7 +53,9 @@
 </table>
 </div>
 <% end %>
-
-
-
 </div>
+
+<style type="text/css" media="screen">
+	table {width: 600px;}
+	td    {padding: 10px;}
+</style>

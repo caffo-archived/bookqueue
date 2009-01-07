@@ -5,9 +5,9 @@ before_filter :iphone_check, :only =>[:index]
   # GET /books
   # GET /books.xml
   def index
-    @current   = Book.find_all_by_state("current")
-    @next      = Book.find_all_by_state("next")
-    @finished  = Book.find(:all, :conditions => ["state = 'finished'"], :order => "finished_on")
+    @current   = Book.current
+    @next      = Book.next
+    @finished  = Book.finished
     
     respond_to do |format|
       format.html   # index.rhtml

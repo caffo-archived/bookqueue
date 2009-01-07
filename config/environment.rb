@@ -1,18 +1,37 @@
-RAILS_GEM_VERSION = '2.0.2'
-ENV['RAILS_ENV'] ||= 'production'
+# ENV['RAILS_ENV'] ||= 'production'
+
+RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 require File.join(File.dirname(__FILE__), 'boot')
+require 'configatron'
 
 Rails::Initializer.run do |config|
-  config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase of at least 30 characters" }
-  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
-    File.directory?(lib = "#{dir}/lib") ? lib : dir
-  end
+
+# twitter4r comment out because his schizo
+# namespace issue. As of right now, install
+# twitter4r manually using
+#
+# gem install twitter4r
+
+  config.gem :rmagick
+# config.gem :twitter 
+  config.gem :json
+  config.gem :configatron, :version => '2.2.1'
+  
+  config.time_zone = 'UTC'
+  
+  # Your secret key for verifying cookie session data integrity.
+  # If you change this key, all old sessions will become invalid!
+  # Make sure the secret is at least 30 characters and all random, 
+  # no regular words or you'll be exposed to dictionary attacks.
+  config.action_controller.session = {
+    :session_key => '_bookqueue_session',
+    :secret      => 'f11c0a35fac33e36b4942972a667768cda9b7178232c07d0afa78a0040ce8d7545e6c1e305f329ba284cead814ab44f3f83de75954740af6acb6bd9672af00ec'
+  }
+
+  # Use the database for sessions instead of the cookie-based default,
+  # which shouldn't be used to store highly confidential information
+  # (create the session table with "rake db:sessions:create")
+  # config.action_controller.session_store = :active_record_store
 end
-
-require('twitter')
-require('twitter/console')
-
-twitter_config =  File.join(File.dirname(__FILE__), '..', 'config', 'twitter.yml')
-TWITTER        = Twitter::Client.from_config(twitter_config)
 
