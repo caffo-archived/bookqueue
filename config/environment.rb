@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_bookqueue_session',
-    :secret      => 'f11c0a35fac33e36b4942972a667768cda9b7178232c07d0afa78a0040ce8d7545e6c1e305f329ba284cead814ab44f3f83de75954740af6acb6bd9672af00ec'
+    :secret      => 'SECRET'
   }
 
   # Use the database for sessions instead of the cookie-based default,
