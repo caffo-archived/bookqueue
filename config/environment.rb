@@ -14,9 +14,9 @@ Rails::Initializer.run do |config|
 # gem install twitter4r
 
   config.gem :rmagick
-  config.gem :twitter4r, :lib => 'twitter'
+# config.gem :twitter 
   config.gem :json
-  config.gem :configatron
+  config.gem :configatron, :version => '2.2.1'
   
   config.time_zone = 'UTC'
   
