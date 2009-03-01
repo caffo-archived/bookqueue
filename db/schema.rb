@@ -30,17 +30,6 @@ ActiveRecord::Schema.define(:version => 20090228182910) do
     t.integer  "cover_file_size"
   end
 
-  create_table "covers", :force => true do |t|
-    t.string   "content_type"
-    t.integer  "size"
-    t.string   "filename"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "book_id"
-    t.string   "thumbnail"
-    t.integer  "parent_id"
-  end
-
   create_table "feed_items", :force => true do |t|
     t.string   "title"
     t.text     "body"

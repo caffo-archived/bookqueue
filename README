@@ -19,16 +19,11 @@ the current features includes:
 - mkdir log
 - create a config/database.yml (rename and edit config/database.yml.example)
 - modify the session secret
-- rake db:migrate
-- rake
-- rake db:fixtures:load
+- rake db:migrate RAILS_ENV=production
 - modify config/amazon_s3.yml with your amazon s3 credentials (covers are uploaded to s3)
+- access '/signup' and create your admin user.
 
-
-that will get the database created, the tests done and some sample data - including an 
-admin user, quentin. You can authenticate as an administrator accessing /login (quentin's 
-password is test).  you should create new admin users using the console. feel free to 
-customize your environment file with fancy configatron options.
+You can later login into the admin area accessing '/login'. Feel free to customize the config.yml file with fancy configatron options.
 
 
 == LICENSE:

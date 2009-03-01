@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    login_required if User.all.size > 0      
   end
 
   def create
