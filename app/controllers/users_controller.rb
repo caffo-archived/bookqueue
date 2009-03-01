@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save!
     self.current_user = @user
-    redirect_back_or_default('/')
-    flash[:notice] = "Thanks for signing up!"
+    flash[:notice] = "Welcome to the bookqueue!"
+    redirect_back_or_default('/books/new')
   rescue ActiveRecord::RecordInvalid
     render :action => 'new'
   end

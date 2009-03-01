@@ -21,6 +21,7 @@ the current features includes:
 - modify the session secret
 - rake db:migrate RAILS_ENV=production
 - modify config/amazon_s3.yml with your amazon s3 credentials (covers are uploaded to s3)
+- setup the webserver to access the app
 - access '/signup' and create your admin user.
 
 You can later login into the admin area accessing '/login'. Feel free to customize the config.yml file with fancy configatron options.
