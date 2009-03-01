@@ -42,14 +42,6 @@ before_filter :iphone_check, :only =>[:index]
   def create
     @book = Book.new(params[:book])
 
-    if  params[:cover] && (
-    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO" || 
-    		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedTempfile" 
-    		)
-      @book.cover = Cover.new(params[:cover]) 
-      @book.cover.save
-    end
-
     respond_to do |format|
       if @book.save 
         flash[:notice] = 'Book was successfully created.'
@@ -66,17 +58,8 @@ before_filter :iphone_check, :only =>[:index]
   # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
-      
-     # If a cover was uploaded, check if its a valid upload and create the cover object
-     if params[:cover] && (
-     		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedStringIO" || 
-     		params[:cover][:uploaded_data].class.to_s == "ActionController::UploadedTempfile" 
-     		)
-
-       @book.cover = Cover.new(params[:cover]) 
-       @book.cover.save
-     end
-
+   @books = Book.find(:all, :order => 'title ASC')
+   
      # If book is already rated and the POST try to zero it, override the parameter value
      if params[:book]['rate'] && params[:book]['rate'].strip.empty?
         params[:book].delete("rate")
