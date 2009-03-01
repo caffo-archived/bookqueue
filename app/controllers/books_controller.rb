@@ -10,7 +10,11 @@ before_filter :iphone_check, :only =>[:index]
     @finished  = Book.finished
     
     respond_to do |format|
-      format.html   # index.rhtml
+      if Book.all.size == 0
+        format.html { render :partial => 'no_books', :layout => 'books'}      
+      else
+        format.html   # index.rhtml        
+      end
       format.xml    { render :xml => @books.to_xml }
     end
   end
