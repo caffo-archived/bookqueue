@@ -36,9 +36,9 @@ module ApplicationHelper
       width  = "184px"    
     end
 
-    if !book.cover.nil?
-  		response = image_tag book.cover.public_filename(version), {:style => "height: #{height}; width: #{width}"}
-    elsif !book.image.empty?
+    if book.cover?
+  		response = image_tag book.cover.url(version), {:style => "height: #{height}; width: #{width}"}
+    elsif book.image?
   		response = image_tag book.image, {:style => "height: #{height}; width: #{width}"}		
     else
   		response = image_tag '/images/default_cover.gif', {:style => "height: #{height}; width: #{width}"}

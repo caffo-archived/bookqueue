@@ -7,7 +7,6 @@ class Book < ActiveRecord::Base
   after_create  :create_media
   before_update :update_status!
   
-  has_one :cover
   has_and_belongs_to_many :related_books, 
                           :class_name => 'Book', 
                           :foreign_key => 'related_id', 
@@ -22,6 +21,18 @@ class Book < ActiveRecord::Base
   validates_presence_of :url,     :message => "can't be blank"
   validates_presence_of :blurb,   :message => "can't be blank"
   validates_presence_of :author,  :message => "can't be blank"
+  validates_numericality_of :pages, :message => "is not a number"
+
+  validate :validate_url  
+  
+  has_attached_file :cover,
+                    :resize_to => '184x246>', 
+                    :styles => { :large => '123x164>', :medium => '74x98>', :small => '49x66>' },
+                    :storage => :s3,
+                    :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+                    :bucket => 'bookqueue-development',
+                    :path => ":attachment/:id/:style.:extension"
+
   
   acts_as_state_machine :initial => :next
   state :next
@@ -81,5 +92,19 @@ class Book < ActiveRecord::Base
 
   def create_media
     self.update_media("next")
+  end
+  
+  private 
+
+  def validate_url
+    errors.add(:url) unless %w(200 301 302).include?(Book.status_code(self.url))
+  end
+
+  def self.status_code(url)
+    regexp = url.match(/https?:\/\/([^\/]+)(.*)/)
+    path = regexp[2].blank? ? '/' : regexp[2]
+    Net::HTTP.start(regexp[1]) {|http| http.head(path).code}
+  rescue
+    nil
   end
 end
