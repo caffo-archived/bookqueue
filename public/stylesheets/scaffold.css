@@ -290,3 +290,16 @@ pre
   margin: 0 auto; 
   text-align: center;
 }
+
+#no_book {
+  text-align: center;
+   padding: 30px;  
+}
+
+#no_book h1 { 
+    font-size: 40px;  
+}
+#no_book p {
+  font-size: 20px;
+  margin-top: 30px;
+}
