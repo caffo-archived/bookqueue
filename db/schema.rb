@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20) do
+ActiveRecord::Schema.define(:version => 20090228182910) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(:version => 20) do
     t.datetime "created_at"
     t.date     "finished_on"
     t.text     "blurb"
-    t.string   "state",       :default => "next"
+    t.string   "state",              :default => "next"
     t.integer  "rate"
     t.integer  "days_taken"
     t.text     "review"
+    t.integer  "pages"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
   end
 
   create_table "covers", :force => true do |t|
