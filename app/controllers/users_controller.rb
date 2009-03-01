@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  layout 'books'
   # render new.rhtml
   def new
     login_required if User.all.size > 0      
