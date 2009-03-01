@@ -1,8 +1,8 @@
   <td class="book_cover">
-		<%= link_to show_cover(book,'medium'), book_url(book) %>	
+		<%= link_to show_cover(book,'medium'), seo_url(book) %>	
 	</td>
   <td class="book_description">
-			<%= link_to book.title, book_url(book) %><br/>
+			<%= link_to book.title, seo_url(book) %><br/>
 			by <%= h book.author %><br/>
 		<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
 	</td>

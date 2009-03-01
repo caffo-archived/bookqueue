@@ -1,9 +1,9 @@
 <tr>
   <td>
-		<%= link_to show_cover(book,'large'), book_url(book) %>	
+		<%= link_to show_cover(book,'large'), seo_url(book) %>	
 	</td>
   <td style="vertical-alignment: top;" valign="top">
-			<h3><%= link_to book.title, book_url(book) %></h3>
+			<h3><%= link_to book.title, seo_url(book) %></h3>
 			<p class="current_author">by <%= h book.author %></p>
 			<p class="current_blurb"><%= simple_format(book.blurb) %></p>
 			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
