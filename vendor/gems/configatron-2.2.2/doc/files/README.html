@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Sep 17 14:47:44 -0400 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/Configatron.html">Configatron</a></h1>
+<p>
+<a href="../classes/Configatron.html">Configatron</a> makes configuring
+your applications and scripts incredibly easy. No longer is a there a need
+to use constants or global variables. Now you can use a simple and painless
+system to configure your life. And, because it&#8216;s all Ruby, you can do
+any crazy thing you would like to!
+</p>
+<h2>Examples</h2>
+<h3>Simple</h3>
+<pre>
+  configatron.email = 'me@example.com'
+  configatron.database_url = &quot;postgres://localhost/mack_framework_rocks&quot;
+</pre>
+<p>
+Now, anywhere in your code you can do the following:
+</p>
+<pre>
+  configatron.email # =&gt; &quot;me@example.com&quot;
+  configatron.database_url # =&gt; &quot;postgres://localhost/mack_framework_rocks&quot;
+</pre>
+<p>
+Viola! Simple as can be.
+</p>
+<p>
+Now you&#8216;re saying, what if I want to have a &#8216;default&#8217; set
+of options, but then override them later, based on other information?
+Simple again. Let&#8216;s use our above example. We&#8216;ve configured our
+&#8216;database_url&#8217; option to be
+&quot;postgres://localhost/mack_framework_rocks&quot;. The problem with
+that is that is our production database url, not our development url. Fair
+enough, all you have to do is redeclare it:
+</p>
+<pre>
+  configatron.database_url = &quot;postgres://localhost/mack_framework_rocks_development&quot;
+</pre>
+<p>
+becomes:
+</p>
+<pre>
+  configatron.email # =&gt; &quot;me@example.com&quot;
+  configatron.database_url # =&gt; &quot;postgres://localhost/mack_framework_rocks_development&quot;
+</pre>
+<p>
+Notice how our other configuration parameters haven&#8216;t changed? Cool,
+eh?
+</p>
+<h3>Hash/YAML</h3>
+<p>
+You can configure configatron from a hash as well:
+</p>
+<pre>
+  configatron.configure_from_hash({:email =&gt; {:pop =&gt; {:address =&gt; 'pop.example.com', :port =&gt; 110}}, :smtp =&gt; {:address =&gt; 'smtp.example.com'}})
+
+  configatron.email.pop.address # =&gt; 'pop.example.com'
+  configatron.email.pop.port # =&gt; 110
+  # and so on...
+</pre>
+<p>
+Notice how they&#8216;re all namespaced for your as well. The same holds
+true for YAML files:
+</p>
+<pre>
+  configuration.configure_from_yaml('/path/to/file.yml')
+</pre>
+<p>
+When the &#8216;reload&#8217; method is called on configatron then the YAML
+file will be re-read in case changes have been made.
+</p>
+<h3>Namespaces</h3>
+<p>
+The question that should be on your lips is what I need to have namespaced
+configuration parameters. It&#8216;s easy! <a
+href="../classes/Configatron.html">Configatron</a> allows you to create
+namespaces.
+</p>
+<pre>
+  configatron.website_url = &quot;http://www.mackframework.com&quot;
+  configatron.email.pop.address = &quot;pop.example.com&quot;
+  configatron.email.pop.port = 110
+  configatron.email.smtp.address = &quot;smtp.example.com&quot;
+  configatron.email.smtp.port = 25
+</pre>
+<p>
+becomes:
+</p>
+<pre>
+  configatron.email.pop.address # =&gt; &quot;pop.example.com&quot;
+  configatron.email.smtp.address # =&gt; &quot;smtp.example.com&quot;
+  configatron.website_url # =&gt; &quot;http://www.mackframework.com&quot;
+</pre>
+<p>
+<a href="../classes/Configatron.html">Configatron</a> allows you to nest
+namespaces to your hearts content! Just keep going, it&#8216;s that easy.
+</p>
+<p>
+Of course you can update a single parameter n levels deep as well:
+</p>
+<pre>
+  configatron.email.pop.address = &quot;pop2.example.com&quot;
+
+  configatron.email.pop.address # =&gt; &quot;pop2.example.com&quot;
+  configatron.email.smtp.address # =&gt; &quot;smtp.example.com&quot;
+</pre>
+<h3>Misc.</h3>
+<p>
+Even if parameters haven&#8216;t been set, you can still call them, and
+you&#8216;ll get nil back:
+</p>
+<pre>
+  configatron.i.dont.exist.nil? # =&gt; true
+  configatron.i.dont.exist # =&gt; nil
+</pre>
+<p>
+You can set &#8216;default&#8217; values for parameters. If there is
+already a setting, it won&#8216;t be replaced. This is useful if
+you&#8216;ve already done your &#8216;configuration&#8217; and you call a
+library, that needs to have parameters set. The library can set it&#8216;s
+defaults, without worrying that it might have overridden your custom
+settings.
+</p>
+<pre>
+  configatron.set_default(:name, 'Mark Bates')
+  configatron.name # =&gt; 'Mark Bates'
+  configatron.set_default(:name, 'Me')
+  configatron.name # =&gt; 'Mark Bates'
+</pre>
+<p>
+Sometimes in testing, or other situations, you want to temporarily change
+some settings. You can do this with the <tt>temp</tt> method:
+</p>
+<pre>
+  configatron.one = 1
+  configatron.letters.a = 'A'
+  configatron.letters.b = 'B'
+  configatron.temp do
+    configatron.letters.b = 'bb'
+    configatron.letters.c = 'c'
+    configatron.one # =&gt; 1
+    configatron.letters.a # =&gt; 'A'
+    configatron.letters.b # =&gt; 'bb'
+    configatron.letters.c # =&gt; 'c'
+  end
+  configatron.one # =&gt; 1
+  configatron.letters.a # =&gt; 'A'
+  configatron.letters.b # =&gt; 'B'
+  configatron.letters.c # =&gt; nil
+</pre>
+<p>
+You can also pass in an optional Hash to the <tt>temp</tt>:
+</p>
+<pre>
+  configatron.one = 1
+  configatron.letters.a = 'A'
+  configatron.letters.b = 'B'
+  configatron.temp(:letters =&gt; {:b =&gt; 'bb', :c =&gt; 'c'}) do
+    configatron.one == 1
+    configatron.letters.a # =&gt; 'A'
+    configatron.letters.b # =&gt; 'bb'
+    configatron.letters.c # =&gt; 'c'
+  end
+  configatron.one == 1
+  configatron.letters.a # =&gt; 'A'
+  configatron.letters.b # =&gt; 'B'
+  configatron.letters.c # =&gt; nil
+</pre>
+<p>
+Enjoy!
+</p>
+<h2>Contact</h2>
+<p>
+Please mail bugs, suggestions and patches to
+&lt;bugs@mackframework.com&gt;.
+</p>
+<p>
+On the web at: <a
+href="http://www.mackframework.com">www.mackframework.com</a>
+</p>
+<h2>License and Copyright</h2>
+<p>
+Copyright (C) 2008 Mark Bates, <a
+href="http://www.mackframework.com">www.mackframework.com</a>
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
