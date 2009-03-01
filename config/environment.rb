@@ -14,7 +14,6 @@ Rails::Initializer.run do |config|
 # gem install twitter4r
 
   config.gem :rmagick
-  config.gem :twitter4r, :lib => 'twitter'
   config.gem :json
   config.gem :configatron
   

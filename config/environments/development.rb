@@ -25,6 +25,9 @@ configatron.owner.name   = "xenu"
 configatron.owner.email  = "xenu@xenucorp.com"
 
 # twitter
-configatron.twitter.use      = true
+configatron.twitter.use       = true
 configatron.twitter.login     = "xenuqueue"
 configatron.twitter.password  = "xenu21"
+
+
+Paperclip.options[:image_magick_path] = '/opt/local/bin' 
