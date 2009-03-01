@@ -7,6 +7,7 @@ oldman:
   author: John Scalzi
   created_at: 2007-11-17 17:26:40
   blurb: With his wife dead and buried, and life nearly over at 75, John Perry takes the only logical course of action left him:he joins the army. Now better known as the Colonial Defense Force (CDF).
+  pages: 100
 cryptonomicon:
   id: 2
   title: Cryptonomicon
@@ -16,6 +17,7 @@ cryptonomicon:
   created_at: 2007-11-17 17:26:40
   blurb: Computer expert Randy Waterhouse spearheads a movement to create a safe haven for data in a world where information equals power and big business and government seek to control the flow of knowledge. His ambitions collide with a top-secret conspiracy with links to the encryption wars of World War II and his grandfather's work in preventing the Nazis from discovering that the Allies had cracked their supposedly unbreakable Enigma code. The author of Snow Crash (LJ 4/1/92) focuses his eclectic vision on a story of epic proportions, encompassing both the beginnings of information technology in the 1940s and the blossoming of the present cybertech revolution.
   state: current
+  pages: 100
 fragile:
   id: 3
   title: Fragile Things
@@ -28,6 +30,7 @@ fragile:
   blurb: A mysterious circus terrifies an audience for one extraordinary performance before disappearing into the night, taking one of the spectators along with it . . . In a novella set two years after the events of American Gods, Shadow pays a visit to an ancient Scottish mansion, and finds himself trapped in a game of murder and monsters . . . In a Hugo Award-winning short story set in a strangely altered Victorian England, the great detective Sherlock Holmes must solve a most unsettling royal murder . . . Two teenage boys crash a party and meet the girls of their dreams, and nightmares . . . In a Locus Award-winning tale, the members of an excusive epicurean club lament that they've eaten everything that can be eaten, with the exception of a legendary, rare, and exceedingly dangerous Egyptian bird . . . Such marvelous creations and more, including a short story set in the world of The Matrix, and others set in the worlds of gothic fiction and children's fiction, can be found in this extraordinary collection, which showcases Gaiman's storytelling brilliance, as well as his terrifyingly entertaining, dark, sense of humor. By turns, delightful, disturbing, and diverting, Fragile Things is a gift of literary enchantment, from one of the most unique writers of our time.
   state: finished
   rate: 5
+  pages: 100
 down:
   id: 4
   title: Down and Out in the Magic Kingdom
@@ -40,6 +43,7 @@ down:
   blurb: Welcome to Bitchun society, where all today's commonplace problems have been solved:even death is a minor inconvenience, since one can make regular backups. Our hero has gone to Disneyland--his habit at times of major personal crisis--where he works for the ad-hocracy that runs the Haunted Mansion and the Hall of Presidents. It is a great honor to be working on the pinnacle of late-twentieth-century cultural and artistic achievement--Disneyland, that would be--and it inspires great loyalty.
   state: finished
   rate: 2
+  pages: 100
 dream:
   id: 5
   title: Dreaming in Code
@@ -52,6 +56,7 @@ dream:
   blurb: Software is easy to make, except when you want it to do something new," Rosenberg observes—but the catch is that "the only software worth making is software that does something new." This two-tiered insight comes from years of observing a team led by Mitch Kapor (the creator of the Lotus 1-2-3 spreadsheet) in its efforts to create a "personal information manager" that can handle to-do lists as easily as events scheduling and address books. 
   state: finished
   rate: 3
+  pages: 100
 enders:
   id: 6
   title: Ender's Game
@@ -64,6 +69,7 @@ enders:
   blurb: or the 20th anniversary of Card's Hugo and Nebula Award–winning novel, Audio Renaissance brings to life the story of child genius Ender Wiggin, who must save the world from malevolent alien "buggers." In his afterword, Card declares, "The ideal presentation of any book of mine is to have excellent actors perform it in audio-only format," and he gets his wish. 
   state: finished
   rate: 3
+  pages: 100
 gotrek:
   id: 7
   title: Gotrek and Felix Vol 1
@@ -72,6 +78,7 @@ gotrek:
   author: Bill King 
   created_at: 2007-11-17 17:26:40
   blurb: The adventures of the Black Library’s most famous characters are collected together into one great value omnibus edition! Dwarf trollslayer Gotrek Gurnisson has sworn to seek an honourable death in combat to atone for an unspoken personal disgrace. Chronicling his exploits is human poet Felix Jaeger, a fugitive from the authorities who only has to stay alive to tell the tale! Bringing together the first three novels in the series (Trollslayer, Skavenslayer and Daemonslayer).
+  pages: 100
 halting:
   id: 8
   title: Halting State
@@ -84,6 +91,7 @@ halting:
   blurb: In the year 2018, Sergeant Sue Smith of the Edinburgh constabulary is called in on a special case. A daring bank robbery has taken place at Hayek Associates, a dot-com startup company that's just been floated on the London stock exchange. The suspects are a band of marauding orcs, with a dragon in tow for fire support, and the bank is located within the virtual reality land of Avalon Four.
   state: finished
   rate: 5
+  pages: 100  
 chameleon:
   id: 9
   title: A Spell for Chameleon
@@ -96,3 +104,4 @@ chameleon:
   blurb: In this adventure, Bink is banned from Xanth and exiled into drear Mundania (the non-magical portion of Earth) for his apparent lack of a magic talent. He eventually returns in the company of Chameleon, a woman whose intelligence and beauty vary inversely depending on the time of the month, and the evil magician Trent who was exiled 20 years earlier for attempting to usurp the throne of Xanth.
   state: finished
   rate: 2
+  pages: 100  
