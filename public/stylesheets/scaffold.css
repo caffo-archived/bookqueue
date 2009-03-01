@@ -284,3 +284,9 @@ pre
 	font-size:11px;
 	padding:10px;
 }
+
+#logo {
+  width: 600px; 
+  margin: 0 auto; 
+  text-align: center;
+}

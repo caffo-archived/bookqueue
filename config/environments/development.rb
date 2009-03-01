@@ -19,6 +19,7 @@ config.action_mailer.raise_delivery_errors = false
 # bookqueue 
 configatron.bookqueue.url   = "http://lolxenuqueue.com/"
 configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/development.rb</em>"
+configatron.bookqueue.logo  = "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
 
 # owner
 configatron.owner.name   = "xenu"
