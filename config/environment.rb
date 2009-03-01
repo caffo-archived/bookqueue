@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_bookqueue_session',
-    :secret      => 'SECRET'
+    :secret      => 'SECRET1111111111111111111111111111111'
   }
 
   # Use the database for sessions instead of the cookie-based default,
@@ -21,3 +21,7 @@ Rails::Initializer.run do |config|
   # (create the session table with "rake db:sessions:create")
   # config.action_controller.session_store = :active_record_store
 end
+
+require 'configatron'
+configatron.configure_from_yaml("config/config.yml", :hash => Rails.env)
+TWITTER =  Twitter::Client.new(:login => configatron.twitter_login, :password => configatron.twitter_password) if configatron.twitter_use
