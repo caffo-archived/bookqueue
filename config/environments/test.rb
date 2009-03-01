@@ -20,17 +20,3 @@ config.action_controller.allow_forgery_protection    = false
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
-
-# bookqueue 
-configatron.bookqueue.url   = "http://lolxenuqueue.com/"
-configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/test.rb</em>"
-configatron.bookqueue.logo  = "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
-
-# owner
-configatron.owner.name   = "xenu"
-configatron.owner.email  = "xenu@xenucorp.com"
-
-# twitter
-configatron.twitter.use       = false 
-configatron.twitter.login     = "xenuqueue"
-configatron.twitter.password  = "xenu21"

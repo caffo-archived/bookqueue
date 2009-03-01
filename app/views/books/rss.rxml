@@ -5,9 +5,9 @@ xml.rss(:version=>"2.0",
         "xmlns:media"   => "http://search.yahoo.com/mrss/"
         ){
   xml.channel{
-    xml.title("#{configatron.owner.name}'s book queue")
+    xml.title("#{configatron.owner_name}'s book queue")
     xml.link(configatron.bookqueue.url)
-    xml.description("#{configatron.owner.name}'s book queue: currently reading, finished books and next ones.")
+    xml.description("#{configatron.owner_name}'s book queue: currently reading, finished books and next ones.")
     xml.language('en-us')
       for post in @posts
         xml.item do

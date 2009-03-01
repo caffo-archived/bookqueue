@@ -16,19 +16,4 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-# bookqueue 
-configatron.bookqueue.url   = "http://lolxenuqueue.com/"
-configatron.bookqueue.title = "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/development.rb</em>"
-configatron.bookqueue.logo  = "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
-
-# owner
-configatron.owner.name   = "xenu"
-configatron.owner.email  = "xenu@xenucorp.com"
-
-# twitter
-configatron.twitter.use       = true
-configatron.twitter.login     = "xenuqueue"
-configatron.twitter.password  = "xenu21"
-
-
 Paperclip.options[:image_magick_path] = '/opt/local/bin' 
