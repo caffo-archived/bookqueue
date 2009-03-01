@@ -14,7 +14,8 @@
 					<%= link_to @book.title, @book.url %>
 				</h3>
 				<p class="current_author">
-					by <%= h @book.author %>					
+					by <%= h @book.author %>
+				  <%= "<em><br/>#{@book.pages} pages</em>" if @book.pages %>
 					<h3><% if @book.rate %><%= show_rating(@book.rate,"web") %><% end %></h3>
 					<small style="color: #76614e;">
 							<% if logged_in? %>
@@ -25,7 +26,7 @@
 					</small>
 					
 				</p>
-				<p class="current_blurb"><%= @book.blurb %></p>
+				<p class="current_blurb"><%= simple_format(@book.blurb) %></p>
 				<p><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>
 		</td>
 	</tr>
@@ -36,7 +37,7 @@
 <div id="review" style="margin-top:5px; margin-bottom: 45px;">
         <h1>Review</h1>
         <hr>
-        <p class="current_blurb" style="font-size: 12px;"><%= @book.review.gsub(/\n/,"<br/>") %></p>
+        <p class="current_blurb" style="font-size: 12px;"><%= simple_format(@book.review) %></p>
 </div>
 <% end %>
 

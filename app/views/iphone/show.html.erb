@@ -7,14 +7,17 @@
 		<%= show_cover(@book,'medium') %>
 	</div>
 	<h2 style="margin-top: 2px;"  > <%= link_to @book.title, @book.url %></h2>
-	 <p style="margin-top: -5px;" > by <%= h @book.author %></p>
+	 <p style="margin-top: -5px;" > 
+	   by <%= h @book.author %>
+		<%= "<br/>#{@book.pages} pages" if @book.pages %>	   
+	 </p>
 	 <p style="margin-top: -5px;" > <% if @book.rate %><%= show_rating(@book.rate,"iphone") %><% end %></p>	
-	 <p style="margin: 10px; text-align: justify; padding: 10px;"><%= @book.blurb.gsub(/\n/,"<br/>") if @book.blurb %></p>
+	 <p style="margin: 10px; text-align: justify; padding: 10px;"><%= simple_format(@book.blurb) if @book.blurb %></p>
 	 <p style="margin-left: 10px;"><% if @book.days_taken %> Finished in <b><%= h @book.days_taken %></b> days<% end %></p>	
 
 	 <% if @book.review %>
 	 	<h3 style="margin-left: 10px;">Review</h3>
-	 	<p  style="margin: 10px; text-align: justify;" ><%= @book.review.gsub(/\n/,"<br/>") %></p>
+	 	<p  style="margin: 10px; text-align: justify;" ><%= simple_format(@book.review) %></p>
 	<% end %>
 
 	<% if @book.related_books && @book.related_books.size > 0 %>

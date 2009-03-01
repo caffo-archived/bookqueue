@@ -5,7 +5,7 @@
   <td style="vertical-alignment: top;" valign="top">
 			<h3><%= link_to book.title, book_url(book) %></h3>
 			<p class="current_author">by <%= h book.author %></p>
-			<p class="current_blurb"><%= book.blurb %></p>
+			<p class="current_blurb"><%= simple_format(book.blurb) %></p>
 			<%= render :partial => 'admin_actions',  :locals => { :book => book } %>
 	</td>
 </tr>
