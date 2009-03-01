@@ -234,6 +234,18 @@ img
 	border:1px solid #666;
 }
 
+
+input,textarea
+{
+	background:#efefef none repeat scroll 0;
+	border-color:#D1D1D1 #e9e9e9 #e9e9e9 #d1d1d1;
+	border-style:solid;
+	border-width:1px;
+	color:#535353;
+	line-height:130%;
+	width:430px;
+}
+
 input
 {
 	background:#FFF url(/images/bg_input.gif) repeat-x scroll left bottom;
@@ -250,16 +262,6 @@ input
 	width:420px;
 }
 
-input,textarea
-{
-	background:#efefef none repeat scroll 0;
-	border-color:#D1D1D1 #e9e9e9 #e9e9e9 #d1d1d1;
-	border-style:solid;
-	border-width:1px;
-	color:#535353;
-	line-height:130%;
-	width:430px;
-}
 
 input,textarea,select
 {
