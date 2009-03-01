@@ -11,19 +11,19 @@ the current features includes:
 == REQUIREMENTS:
 
 * rails 2.1
-* database 
+* imagemagick for cover manipulation
 * some gems (use rake gems to list them)
 
 == INSTRUCTIONS:
 
 - mkdir log
 - create a config/database.yml (rename and edit config/database.yml.example)
-- review the environment.rb file dependencies
-- rake gems:install (may require sudo)
+- modify the session secret
 - rake db:migrate
 - rake
 - rake db:fixtures:load
-- modify app/models/cover.rb to use your image processor of choice (default is rmagick)
+- modify config/amazon_s3.yml with your amazon s3 credentials (covers are uploaded to s3)
+
 
 that will get the database created, the tests done and some sample data - including an 
 admin user, quentin. You can authenticate as an administrator accessing /login (quentin's 
