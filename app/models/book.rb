@@ -33,6 +33,7 @@ class Book < ActiveRecord::Base
                     :bucket => 'bookqueue-development',
                     :path => ":attachment/:id/:style.:extension"
 
+  validates_attachment_thumbnails :cover
   
   acts_as_state_machine :initial => :next
   state :next
