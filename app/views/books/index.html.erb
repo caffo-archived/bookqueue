@@ -3,7 +3,7 @@
 <div id="container">
 	<% if @current && @current.size > 0%>
 		<h1>Current Books</h1>
-		<table border="0" id="current">  
+		<table border="0" id="current">	 
 			<% for book in @current %>
 				<%= render :partial => 'current_book', :locals => { :book => book } %>
 			<% end %>
@@ -15,10 +15,10 @@
 	<% @current_item = 0 %>
 		<hr>
 		<h1>Next Books</h1>
-		<table border="0">  
+		<table border="0">	
 			<tr>
 			<% for book in @next %>
-				<%= render :partial => 'single_book', :locals => { :book => book }  %>
+				<%= render :partial => 'single_book', :locals => { :book => book }	%>
 				<% end %>
 		</table>
 		<br/>
@@ -26,21 +26,26 @@
 
 	<% if @finished && @finished.size > 0%>
 	<hr>	
-	<% @current_item = 0 %>	
+	<% @current_item = 0 %> 
 	<h1>Finished Books</h1>
 	<table border="0" cellspacing="0" cellpading="0">
 		<tr>
 		<% for book in @finished %>
-			<%= render :partial => 'finished_book', :locals => { :book => book }  %>
+			<%= render :partial => 'finished_book', :locals => { :book => book }	%>
 		<% end %>
 	</table>
 	<% end %>
 
+  <% if @finished && @finished.size > 0%>	
+    <% cache do %>
+    	<hr>
+    	<h1>Readed pages per month</h1>
+    	<div id="graph" >&nbsp;</div>
+    	<%= pages_graphic(Book.pages_by_month) %>
+    <% end %>
+  <% end %>
+  	
 	<hr>
-  <h1>Readed pages per month</h1>
-  <div id="graph" >&nbsp;</div>
-
-  <hr>
 	<table border="0" class="stats">
 		<tr>
 			<th>Finished Books</th>
@@ -55,12 +60,10 @@
 </div>
 
 
-  
+	
 <style type="text/css" media="screen">
 	table {width: 600px;}
-	td    {padding: 10px;}
+	td		{padding: 10px;}
 	#graph img {border: 0px; margin-top: 20px;}
 	#graph {text-align: center;}
 </style>
-
-<%= pages_graphic(Book.pages_by_month) %>

@@ -76,6 +76,7 @@ class Book < ActiveRecord::Base
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
         status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if configatron.twitter_use
+        ActionController::Base.new.expire_fragment(:controller => "books", :action => "index")  
     end
     post.save
   end
@@ -111,7 +112,14 @@ class Book < ActiveRecord::Base
   def self.pages_by_month
     items           = []
     processed_items = []
-    finished.each {|book| book.pages_by_month.each {|i| items << i } }
+    
+    finished.each do |book| 
+      next if book.pages.nil?
+      next if book.started_on.nil?
+      next if book.finished_on.nil?
+      book.pages_by_month.each {|i| items << i } 
+    end
+    
     items.each do |i|
       target_month = processed_items.find{|o| o[:month] == i[:month]}
       if target_month 
