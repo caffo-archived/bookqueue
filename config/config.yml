@@ -1,7 +1,6 @@
 development:
   bookqueue_url:    "http://lolxenuqueue.com/"
-  bookqueue_title:  "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/development.rb</em>"
-  bookqueue_logo:   "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
+  bookqueue_title:  "Welcome to xenu's bookqueue. Change this message in <em>config/environments/development.rb</em>"
 
   owner_name:        "xenu"
   owner_email:       "xenu@xenucorp.com"
@@ -12,8 +11,7 @@ development:
 
 test:
   bookqueue_url:    "http://lolxenuqueue.com/"
-  bookqueue_title:  "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/temp.rb</em>"
-  bookqueue_logo:   "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
+  bookqueue_title:  "Welcome to xenu's bookqueue. Change this message in <em>config/environments/temp.rb</em>"
 
   owner_name:        "xenu"
   owner_email:       "xenu@xenucorp.com"
@@ -24,8 +22,7 @@ test:
     
 production:
   bookqueue_url:    "http://lolxenuqueue.com/"
-  bookqueue_title:  "Welcome to xenu's bookqueue. Feel free to change this message in <em>config/environments/production.rb</em>"
-  bookqueue_logo:   "http://flexcode-apps.s3.amazonaws.com/bookqueue/logo.gif"
+  bookqueue_title:  "Welcome to xenu's bookqueue. Change this message in <em>config/environments/production.rb</em>"
 
   owner_name:        "xenu"
   owner_email:       "xenu@xenucorp.com"
