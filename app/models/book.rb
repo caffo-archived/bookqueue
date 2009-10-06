@@ -23,7 +23,7 @@ class Book < ActiveRecord::Base
   validates_presence_of :author,  :message => "can't be blank"
   validates_numericality_of :pages, :message => "is not a number"
 
-  validate :validate_url  
+  # validate :validate_url  
   
   has_attached_file :cover,
                     :resize_to => '184x246>', 
