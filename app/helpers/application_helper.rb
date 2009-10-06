@@ -41,7 +41,7 @@ module ApplicationHelper
     elsif book.image?
   		response = image_tag book.image, {:style => "height: #{height}; width: #{width}"}		
     else
-  		response = image_tag '/images/default_cover.gif', {:style => "height: #{height}; width: #{width}"}
+  		response = image_tag DEFAULT_COVER, {:style => "height: #{height}; width: #{width}; border: 0px;"}
     end
 
     return response
