@@ -2,7 +2,7 @@
 
 <div id="container">
 	<% if @current && @current.size > 0%>
-		<h1>Current Book</h1>
+		<h1>Current Books</h1>
 		<table border="0" id="current">  
 			<% for book in @current %>
 				<%= render :partial => 'current_book', :locals => { :book => book } %>
@@ -27,7 +27,7 @@
 	<% if @finished && @finished.size > 0%>
 	<hr>	
 	<% @current_item = 0 %>	
-	<h1>Finished Book</h1>
+	<h1>Finished Books</h1>
 	<table border="0" cellspacing="0" cellpading="0">
 		<tr>
 		<% for book in @finished %>
