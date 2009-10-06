@@ -1,4 +1,4 @@
-<%= render :partial => 'logo' %>
+<%= render :partial => 'logo' if Book.first.nil? %>
 
 <div id="container">
 	<% if @current && @current.size > 0%>

@@ -28,7 +28,7 @@
 	<%= link_to "New Book", new_book_url %> |
 	<%= link_to "Logout", session_path,:method => :delete %>
 <% else %>
-	<%= configatron.bookqueue_title %>
+	<%= configatron.bookqueue_title %> (<%= link_to "About this site", "#" %>)
 <% end %>
 </div>
 <% if flash[:notice] %>
