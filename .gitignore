@@ -6,4 +6,3 @@ doc/app
 config/database.yml
 db/test.sqlite3
 public/covers
-vendor/rails
