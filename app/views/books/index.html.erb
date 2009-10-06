@@ -35,8 +35,12 @@
 		<% end %>
 	</table>
 	<% end %>
-	
+
 	<hr>
+  <h1>Readed pages per month</h1>
+  <div id="graph" >&nbsp;</div>
+
+  <hr>
 	<table border="0" class="stats">
 		<tr>
 			<th>Finished Books</th>
@@ -47,9 +51,16 @@
 			<td style="text-align: center; width: 300px;"><h1><%= @next.size %></h1></td>
 		</tr>
 	</table>
+	
 </div>
 
+
+  
 <style type="text/css" media="screen">
 	table {width: 600px;}
 	td    {padding: 10px;}
+	#graph img {border: 0px; margin-top: 20px;}
+	#graph {text-align: center;}
 </style>
+
+<%= pages_graphic(Book.pages_by_month) %>
