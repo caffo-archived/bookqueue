@@ -10,9 +10,10 @@ the current features includes:
 
 == REQUIREMENTS:
 
-* rails 2.1
+* rails 2.1 (vendored)
+* some gems (vendored too)
 * imagemagick for cover manipulation
-* some gems (use rake gems to list them)
+
 
 == INSTRUCTIONS:
 
