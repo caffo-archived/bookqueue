@@ -2,7 +2,7 @@
 		<%= link_to show_cover(book,'small'), seo_url(book) %>	
 	</td>
   <td class="finished_book_description">
-			<%= link_to book.title, book_url(book) %><br/>
+			<%= link_to book.title, seo_url(book) %><br/>
 			by <%= h book.author %><br/>
 			<% if book.days_taken %> finished in <b><%= h book.days_taken %></b> days<% end %>
 			<% if book.rate %>
