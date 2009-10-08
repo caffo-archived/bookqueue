@@ -133,6 +133,23 @@ class Book < ActiveRecord::Base
     return processed_items
   end
   
+  
+  def self.pages_by_year
+    items           = Book.pages_by_month
+    processed_items = []
+    {:year => 2007, :items => [1,2,]}
+    items.each do |i|
+     target_year = processed_items.find{|o| o[:year] == Date.parse(i[:month].to_s).year}
+     if target_year 
+       target_year[:items] << i
+     else
+       processed_items << {:year => Date.parse(i[:month].to_s).year, :items => [i]}
+     end
+    end
+    return processed_items
+  end
+  
+  
   private 
 
   def validate_url

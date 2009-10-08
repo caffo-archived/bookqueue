@@ -3,7 +3,7 @@ module BooksHelper
     "#{book_url(book)}-#{book.title.to_slug}"
   end
   
-  def pages_graphic(report)
+  def pages_graphic(report,div)
     data     = ""
     labels   = ""
     colors   = ""
@@ -20,8 +20,7 @@ module BooksHelper
       labels << "'"
       labels << "," unless i == report.last
     end
-
-    response = ""
+    
     response = "<script type='text/javascript' charset='utf-8'>
     $(function () {
       var api = new jGCharts.Api(); 
@@ -31,7 +30,8 @@ module BooksHelper
       colors : [#{colors}],
       bg   : 'E3D9BD',
       bar_width   : 20, 
-      size : '600x300',
+      size : '600x150',
+      bar_spacing : 5,
       bg_type     : 'stripes', 
       bg_angle    : 90, 
       bg_offset   : 'dfd2b1', 
@@ -39,7 +39,7 @@ module BooksHelper
       }
       jQuery('<img>') 
       .attr('src', api.make(opt)) 
-      .appendTo('#graph');
+      .appendTo('##{div}');
     });
     </script>"
     response.gsub("FFCC00","968160")

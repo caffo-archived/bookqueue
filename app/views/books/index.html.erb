@@ -40,8 +40,25 @@
     <% cache do %>
     	<hr>
     	<h1>Readed pages per month</h1>
-    	<div id="graph" >&nbsp;</div>
-    	<%= pages_graphic(Book.pages_by_month) %>
+    	<% reports =  Book.pages_by_year.reverse %>
+    	<% if reports.size > 1 %>
+      	<small>
+          <%= link_to_function "past years", "$('#past').slideDown(); $('#more_info').hide(); $('#less_info').show()", {:id => "more_info", :style => "float: right; margin-top: -35px;"} %>
+          <%= link_to_function "current year", "$('#past').slideUp();   $('#less_info').hide(); $('#more_info').show()", {:id => "less_info", :style => "float: right; margin-top: -35px; display:none;"} %>
+      	</small>
+      <% end %>
+    	
+    	<div id="graph" class="graph">&nbsp;</div>
+  	  <%= pages_graphic(reports.first[:items],"graph") %>
+  	  
+  	  <div id="past" style="display:none;">
+    	<% reports.each_with_index do |report,i| %>    	
+    	  <% next if report == reports.first %>
+    	  <div id="graph<%= i %>" class="graph">&nbsp;</div>
+    	  <%= pages_graphic(report[:items],"graph"+i.to_s) %>
+    	<% end %>
+    	</div>
+    	
     <% end %>
   <% end %>
   	
@@ -64,6 +81,6 @@
 <style type="text/css" media="screen">
 	table {width: 600px;}
 	td		{padding: 10px;}
-	#graph img {border: 0px; margin-top: 20px;}
-	#graph {text-align: center;}
+	.graph img {border: 0px;}
+	.graph {text-align: center;}
 </style>
