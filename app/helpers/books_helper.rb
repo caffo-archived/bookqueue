@@ -42,5 +42,6 @@ module BooksHelper
       .appendTo('#graph');
     });
     </script>"
+    response.gsub("FFCC00","968160")
   end
 end
