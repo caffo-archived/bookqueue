@@ -104,7 +104,7 @@ class Book < ActiveRecord::Base
       current_month = self.started_on.month+i
       current_month = 12 if current_month > 12      
       months << { 
-                  :month  => Date.parse("#{self.started_on.month+i}/#{self.started_on.year}"),
+                  :month  => Date.parse("#{current_month}/#{self.started_on.year}"),
                   :pages  =>(pages / (total_months+1))
                 } 
     end
