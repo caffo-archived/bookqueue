@@ -39,7 +39,7 @@
   <% if @finished && @finished.size > 0%>	
     <% cache do %>
     	<hr>
-    	<h1>Readed pages per month</h1>
+    	<h1>Pages read</h1>
     	<% reports =  Book.pages_by_year.reverse %>
     	<% if reports.size > 1 %>
       	<small>
