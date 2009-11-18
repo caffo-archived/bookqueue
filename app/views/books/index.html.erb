@@ -37,7 +37,6 @@
 	<% end %>
 
   <% if @finished && @finished.size > 0%>	
-    <% cache do %>
     	<hr>
     	<h1>Pages read</h1>
     	<% reports =  Book.pages_by_year.reverse %>
@@ -46,7 +45,6 @@
           <%= link_to_function "past years", "$('#past').slideDown(); $('#more_info').hide(); $('#less_info').show()", {:id => "more_info", :style => "float: right; margin-top: -35px;"} %>
           <%= link_to_function "current year", "$('#past').slideUp();   $('#less_info').hide(); $('#more_info').show()", {:id => "less_info", :style => "float: right; margin-top: -35px; display:none;"} %>
       	</small>
-      <% end %>
     	
     	<div id="graph" class="graph">&nbsp;</div>
   	  <%= pages_graphic(reports.first[:items],"graph") %>

@@ -76,7 +76,7 @@ class Book < ActiveRecord::Base
         taken = self.days_taken
         post.body  = "'#{title}', by #{author} - finished in #{days_taken} days"  
         status = TWITTER.status(:post, "'#{title}', by #{author} - finished in #{days_taken} days") if configatron.twitter_use
-        ActionController::Base.new.expire_fragment(:controller => "books", :action => "index")  
+        #ActionController::Base.new.expire_fragment(:controller => "books", :action => "index")  
     end
     post.save
   end
